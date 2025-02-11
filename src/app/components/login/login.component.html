@@ -1,0 +1,45 @@
+<!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-item>
+      <ion-label>Usuario:</ion-label>
+      <ion-input [(ngModel)]="usuario.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contraseña:</ion-label>
+      <ion-input type="password" [(ngModel)]="usuario.password"></ion-input>
+    </ion-item>
+    <ion-button (click)="login()">Iniciar sesión</ion-button>
+  </ion-content> -->
+
+<!-- <app-encabezado></app-encabezado> -->
+<div id="cuerpo">
+    <div class="form">
+        
+      <div class="logo">
+        <img src="./assets/imagenes/logo.png" alt="Logo de la empresa" class="logo-responsive">
+      </div>
+        <div>
+          <h2>Inicio de sesión</h2>
+        </div>
+        <div class="form_container">
+            <div class="form_groupp">
+                <input type="email" id="correo" class="form_input" [(ngModel)]="usuario.email" placeholder=""> 
+                <label for="correo" class="form_label">Correo electrónico</label>
+                <span class="form_line"></span>
+            </div>
+            <div class="form_groupp">
+                <input type="password" id="password" class="form_input" [(ngModel)]="usuario.password" placeholder=""> 
+                <label for="password" class="form_label">Contraseña</label>
+                <span class="form_line"></span>
+            </div>
+            <div id="boton">
+                <button type="button" class="float" (click)="inicioSesion()">Inicio de sesión</button>
+            </div>
+        </div>   
+    </div>    
+</div> 

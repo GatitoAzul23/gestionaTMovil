@@ -1,0 +1,7 @@
+{
+  "name": "gestionaT",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
