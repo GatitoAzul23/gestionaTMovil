@@ -1,0 +1,40 @@
+<div id="cuerpo">
+  <div class="contenedor"> 
+    <ion-grid>
+      <div class="form">
+        <ion-row>
+          <h2>Datos financieros</h2>
+        </ion-row>
+        <ion-row class="ion-justify-content-between">
+          <ion-col size="12">
+            <div class="field column">
+              <label class="label">Ingresos fijos</label>
+              <div class="control">
+                <input class="input" type="text" [(ngModel)]="usuario.nombre" >
+              </div>
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <div class="field column">
+              <label class="label">Frecuencia del ingreso</label>
+              <div class="control">
+                <input class="input" type="text" [(ngModel)]="usuario.apellidoPa" >
+              </div>
+            </div> 
+          </ion-col>
+          <ion-col size="12">
+            <div class="field column">
+              <!-- <label class="label">¿Generas ingresos extras?</label>  -->
+              <div class="control">
+                <ion-checkbox [(ngModel)]="usuario.apellidoPa">¿Generas ingresos extras?</ion-checkbox>
+              </div>
+            </div> 
+          </ion-col>          
+          <ion-col>
+            <button>Enviar</button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+  </div>
+</div>
