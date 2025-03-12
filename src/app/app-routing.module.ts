@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { DatosPersonalesComponent } from './components/datos-personales/datos-personales.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path: 'registro', component:RegistroComponent},
   {path: 'datos/registro', component:DatosPersonalesComponent},
-  {path: 'inicio', component:InicioComponent}
+  {path: 'inicio', component:InicioComponent},
+  {path: 'notificaciones', component:NotificacionesComponent}
 ];
 
 @NgModule({

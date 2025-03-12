@@ -9,7 +9,32 @@ import { Component, OnInit } from '@angular/core';
 export class InicioComponent  implements OnInit {
 
   constructor() { }
+  
 
   ngOnInit() {}
+  egreso ={
+    categoria: '',
+    cantidad: 0,
+    fecha: '',
+  }
+
+  usuario= {
+    categoria: ''
+  }
+  // Modal
+    isModalOpen = false;
+    isModal2Open = false;
+  
+    setOpen(isOpen: boolean) {
+      this.isModalOpen = isOpen;
+    }
+
+    setOpenModal2(isOpen: boolean) {
+      this.isModal2Open = isOpen;
+    }
+
+    registrar(){
+      
+    }
 
 }

@@ -1,13 +1,19 @@
-ion-menu::part(backdrop) {
-    background-color: #F4D793;
-}
-  
-ion-menu::part(container) {
-    border-radius: 0 20px 20px 0;
-  
-    box-shadow: 4px 0px 16px #FFCF50;
-  }
 
-#menuInt{
-    --background: #FFEC9E;
+.menu{
+    //background: #FFEC9E;
+    background-color: #fff;;
+}
+
+#cuerpo{ 
+    background-color: #fff;
+}
+
+#menuButton{
+    background-color: #E9C46A;
+    color: #fff;
+    padding: 10px;
+}
+
+li{
+    list-style: none;
 }

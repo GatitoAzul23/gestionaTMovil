@@ -1,0 +1,69 @@
+ion-content{
+    --background: url('/../assets/imagenes/Inicio.png') no-repeat center center / cover;
+}
+
+
+.imagen{
+  width: 150px;
+  height: 150px;
+  margin-left: 30px;
+  border-radius: 20px;
+}
+
+.modal{
+    --background: #fff;
+}
+
+#modal-content{
+    --background: #fff;
+    color: #000;
+}
+
+.contModal{
+  width: 100%;
+  height: 35%;
+  background-color:#FEF9D9;
+  border-radius: 20px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-color: #4F6F52;
+  border-style: solid;
+  border-width: 5px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+ion-datetime {
+    --background: rgb(237, 241, 237);
+    --background-rgb: 245, 235, 247;
+    //--wheel-highlight-background: rgb(236, 247, 245);
+    --wheel-highlight-background: rgb(169, 196, 108);
+    --wheel-highlight-border-radius: 48px;
+    --wheel-fade-background-rgb:237, 241, 237;
+  }
+  
+  ion-datetime::part(wheel-item) {
+    color: rgb(255, 66, 97);
+  }
+  
+  ion-datetime::part(wheel-item active) {
+    color: rgb(27, 77, 62);
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4F6F52;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+ion-button{
+  --background:#4F6F52;
+  --color:#fff;
+}

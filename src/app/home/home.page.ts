@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../servicios/login.service';
+
 
 @Component({
   selector: 'app-home',
@@ -9,9 +11,14 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor( private router:Router) {}
+  constructor( private router:Router, private servicioLogin:LoginService) {}
   
   comenzar(){
-    this.router.navigate(['/login']);
-  }
+    if(this.servicioLogin.eslogueado()==true){
+      this.router.navigate(['/inicio']);
+      }else{
+        this.router.navigate(['/login']);
+      }
+
+}
 }

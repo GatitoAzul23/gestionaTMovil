@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IonCheckbox } from '@ionic/angular/standalone';
+import { IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-datos-personales',
@@ -9,10 +13,14 @@ import { IonCheckbox } from '@ionic/angular/standalone';
 })
 export class DatosPersonalesComponent  implements OnInit {
 
-  constructor() { }
+   faPlus = faPlus;
+  constructor(private router:Router, private menu:MenuController) { }
 
   ngOnInit() {}
   
+  categoriaNombre: string = '';
+  categorias: any[] = [];
+  categoriasSeleccionadas: string[] = [];
 
   usuario ={
     nombre:"",
@@ -20,18 +28,36 @@ export class DatosPersonalesComponent  implements OnInit {
     apellidoMa:"",
     password:"",
     password_ant:"",
-    correo: localStorage.getItem("correo")
+    correo: localStorage.getItem("correo"),
+    categoriasIngreso :this.categoriasSeleccionadas,
   }
 
-  cambiarContra(){
 
+  actualizarCategoria(nombre: string, checked: boolean) {
+    if (checked) {
+      this.categoriasSeleccionadas.push(nombre);
+    } else {
+      this.categoriasSeleccionadas = this.categoriasSeleccionadas.filter(cat => cat !== nombre);
+    }
   }
 
   limpiarCampos(){
 
   }
 
-  consultar(){
-    
+  aceptar(){
+    this.router.navigate(['/inicio']);
   }
+
+   agregarCategoria() {
+    if (this.categoriaNombre) {
+      this.categorias.push({
+        nombre: this.categoriaNombre,
+        activo: true
+      });
+      this.categoriaNombre = '';
+    }
+  }
+
+
 }

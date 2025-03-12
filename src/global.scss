@@ -37,3 +37,17 @@
 // @import "@ionic/angular/css/palettes/dark.system.css";
 
 /* Mis estilos*/
+
+
+.menu{
+    background-color: #F4D793;
+}
+
+.menuComponent{
+    background-color: #F4D793;
+    position: absolute; /* o position: fixed; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que el menú esté siempre en la parte superior */
+}

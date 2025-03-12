@@ -9,7 +9,9 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
-
+import { Router } from '@angular/router';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from 'src/app/servicios/login.service';
 
 @Component({
   selector: 'app-menu',
@@ -20,8 +22,20 @@ import {
 })
 export class MenuComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private servicioLogin:LoginService) { }
+//Variables para el uso del menu
+  faBars = faBars;
 
   ngOnInit() {}
 
+  
+  public isOpen = false;
+
+  toggleMenu() {
+    this.isOpen = !this.isOpen;
+  }
+
+  logout(){
+    this.servicioLogin.logout();
+  }
 }

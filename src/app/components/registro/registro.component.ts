@@ -18,7 +18,7 @@ export class RegistroComponent  implements OnInit {
   };
 
   registro(){
-    this.router.navigate(['/inicio']);
+    this.router.navigate(['/datos/registro']);
   }
 
 }
