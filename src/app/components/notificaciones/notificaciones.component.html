@@ -1,3 +1,38 @@
-<p>
-  notificaciones works!
-</p>
+<ion-app> 
+  <div class="ion-page" id="main-content">
+    <ion-header class="menuComponent"> 
+      <app-menu></app-menu>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <h1>Recordatorios</h1>
+      <p>Si tienes problemas recordando tus fechas de pago, crea un recordatorio para no olvidarlo.</p>
+      <ion-label>Fecha y hora</ion-label>
+      <ion-datetime 
+      presentation="date-time" 
+      [(ngModel)]="notificacion.fecha"
+    ></ion-datetime>
+      <br><br>
+      <ion-label>Mensaje</ion-label>
+      <input fill="outline" shape="round" [(ngModel)]="notificacion.mensaje">
+      <br><br>
+      <ion-label>Frecuencia</ion-label>
+        <ion-select label="Elije la frecuencia del recordatorio" label-placement="stacked" fill="solid" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="notificacion.frecuencia">
+          <ion-select-option value="minute">Cada minuto</ion-select-option>
+          <ion-select-option value="day">Diario</ion-select-option>
+          <ion-select-option value="week">Cada semana</ion-select-option>
+          <ion-select-option value="month">Cada mes</ion-select-option>
+        </ion-select>
+        <br><br>
+    <ion-button (click)="programarNotificacion()" expand="block">
+      Programar Notificación
+    </ion-button>
+    <div style="height: 100px;">
+  
+    </div>
+    </ion-content>
+    <!-- <ion-footer>
+      
+    </ion-footer> -->
+  </div>
+  
+</ion-app>

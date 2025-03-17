@@ -8,6 +8,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { LocalNotifications } from '@capacitor/local-notifications';
+import { AlertController } from '@ionic/angular';
+//import { PushNotifications } from '@capacitor/push-notifications';
 
 //importar los modulos
 import { AppComponent } from './app.component';
@@ -43,8 +46,12 @@ import { LoginService } from './servicios/login.service';
     HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     LoginService,
+    AlertController
+   
   ],
   
   bootstrap: [AppComponent],
 })
+
+
 export class AppModule {}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "320137508269",
+    "project_id": "gestionatmovil",
+    "storage_bucket": "gestionatmovil.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320137508269:android:a0a720ceaa3954c6405d24",
+        "android_client_info": {
+          "package_name": "com.gestionaT.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU081lH4tpjUTPjWBJXYIC8xQHWK7yHU8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
