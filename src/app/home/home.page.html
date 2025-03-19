@@ -18,9 +18,13 @@
       <strong>Ready to create an app?</strong>
       <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
     </div> -->
-    <h2 style="font-size: xx-large; color: aliceblue;">Bienvenido</h2>
+    <video autoplay muted loop id="background-video">
+      <source src="/assets/imagenes/videoFondo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <h2 id="intro">GestionaT</h2>
     <div class="logo">
-      <img src="./assets/imagenes/logo.png" alt="Logo de la empresa" class="logo-responsive">
+      <img src="/assets/imagenes/GestionaTLogo.png" alt="Logo de la empresa" class="logo-responsive" id="logoImg">
     </div>
     <button id="comenzar" (click)="comenzar()">Comenzar</button>
   </div>

@@ -3,6 +3,7 @@ import { IonCheckbox } from '@ionic/angular/standalone';
 import { IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -12,8 +13,10 @@ import { MenuController } from '@ionic/angular';
   standalone:false
 })
 export class DatosPersonalesComponent  implements OnInit {
+  //para los iconos
+  faPlus = faPlus;
+  faMinus = faMinus;
 
-   faPlus = faPlus;
   constructor(private router:Router, private menu:MenuController) { }
 
   ngOnInit() {}

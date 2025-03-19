@@ -1,13 +1,14 @@
 ion-content{
-    --background: url('/../assets/imagenes/Inicio.png') no-repeat center center / cover;
+    //--background: url('/../assets/imagenes/Inicio.png') no-repeat center center / cover;
+    --background:  #99BC85;
 }
 
 
 .imagen{
   width: 150px;
   height: 150px;
-  margin-left: 30px;
   border-radius: 20px;
+  margin: 15px;
 }
 
 .modal{
@@ -21,10 +22,11 @@ ion-content{
 
 .contModal{
   width: 100%;
-  height: 35%;
-  background-color:#FEF9D9;
+  height: fit-content;
+  background-color:#fff;
   border-radius: 20px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border-color: #4F6F52;
@@ -66,4 +68,5 @@ ion-datetime {
 ion-button{
   --background:#4F6F52;
   --color:#fff;
+  width: 50%;
 }

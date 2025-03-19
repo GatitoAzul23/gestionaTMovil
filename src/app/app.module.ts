@@ -21,7 +21,9 @@ import { DatosPersonalesComponent } from './components/datos-personales/datos-pe
 import { InicioComponent } from './components/inicio/inicio.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
-
+import { ModDatosComponent } from './components/mod-datos/mod-datos.component';
+import { TipsComponent } from './components/tips/tips.component';
+import { SuscripcionesComponent } from './components/suscripciones/suscripciones.component';
 //servicios
 import { LoginService } from './servicios/login.service';
 
@@ -33,7 +35,10 @@ import { LoginService } from './servicios/login.service';
     DatosPersonalesComponent,
     InicioComponent,
     MenuComponent,
-    NotificacionesComponent],
+    NotificacionesComponent,
+    ModDatosComponent,
+    TipsComponent,
+    SuscripcionesComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 

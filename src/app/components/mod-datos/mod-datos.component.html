@@ -1,3 +1,119 @@
-<p>
-  mod-datos works!
-</p>
+<ion-app>
+  <ion-header class="menuComponent"> 
+    <app-menu></app-menu>
+  </ion-header>
+  <ion-content class="ion-padding" >
+    <br><br>
+    <h2 class="titulo">Mis datos financieros</h2>
+      <div class="division">
+        
+          <h2>Mis ingresos fijos</h2>
+          <table class="styled-table">
+            <tr>
+              <th>Nombre</th>
+              <th>Monto</th>
+              <th>Frecuencia</th>
+              <th>Eliminar</th>
+            </tr>
+            <tr *ngFor="let ing of ingresos">
+              <td>{{ing.categoria}}</td>
+              <td>{{ing.monto}}</td>
+              <td>{{ing.frecuencia}}</td>
+              <td>
+                <button (click)="eliminaIng()" id="agregar">
+                  <fa-icon [icon]="faMinus"></fa-icon>
+                </button>
+              </td>
+            </tr>
+          </table>
+
+          <div class="botonAgr">
+            <ion-label>Agregar ingreso</ion-label>
+            <button (click)="setOpenIngreso(true)" id="agregar">
+              <fa-icon [icon]="faPlus"></fa-icon>
+            </button>
+          </div>
+          <ion-modal [isOpen]="isModalOpenIngreso" class="modal">
+            <ng-template>
+              <ion-header>
+                <ion-toolbar>
+                  <ion-title>Registro de ingreso fijo.</ion-title>
+                  <ion-buttons slot="end">
+                    <ion-button (click)="setOpenIngreso(false)">Cancelar</ion-button>
+                  </ion-buttons>
+                </ion-toolbar>
+              </ion-header>
+              <ion-content class="ion-padding" id="modal-content">
+                <label class="label">Nombre del ingreso</label>
+                <input class="input" type="text" [(ngModel)]="ingreso.categoria" >
+                <br><br>
+                <label class="label">Cantidad promedio</label>
+                <input class="input" type="numer" min="1" [(ngModel)]="ingreso.cantidad" >
+                <br><br>
+                <div class="field column">
+                  <label class="label">Frecuencia del ingreso</label>
+                    <ion-select label="Ingresos del tipo" label-placement="stacked" fill="solid" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="ingreso.frecuencia">
+                      <ion-select-option value="Semanal">Semanal</ion-select-option>
+                      <ion-select-option value="Quincenal">Quincenal</ion-select-option>
+                      <ion-select-option value="Mensual">Mensual</ion-select-option>
+                      <ion-select-option value="Bimestral">Bimestral</ion-select-option>
+                    </ion-select>
+                    <br><br>
+                    <button (click)="agregarIngreso()" id="agregar">
+                      Agregar
+                    </button>
+                </div> 
+              </ion-content>
+            </ng-template>
+          </ion-modal>
+        
+      </div>
+      
+      <div class="division">
+        <h2>Categorías de gastos</h2>
+          <table class="styled-table">
+            <tr>
+              <th>Nombre de la categoría</th>
+              <th>Eliminar</th>
+            </tr>
+            <tr *ngFor="let egr of egresos">
+              <td>{{egr.categoria}}</td>
+              <td>
+                <button (click)="eliminaEgr()" id="agregar">
+                  <fa-icon [icon]="faMinus"></fa-icon>
+                </button>
+              </td>
+            </tr>
+          </table>
+          <div class="botonAgr">
+            <ion-label>Agregar categoría</ion-label>
+            <button (click)="setOpenEgreso(true)" id="agregar">
+              <fa-icon [icon]="faPlus"></fa-icon>
+            </button>
+          </div>
+          <ion-modal [isOpen]="isModalOpenEgreso" class="modal">
+            <ng-template>
+              <ion-header>
+                <ion-toolbar>
+                  <ion-title>Registro de categoría de gastos.</ion-title>
+                  <ion-buttons slot="end">
+                    <ion-button (click)="setOpenEgreso(false)">Cancelar</ion-button>
+                  </ion-buttons>
+                </ion-toolbar>
+              </ion-header>
+              <ion-content class="ion-padding" id="modal-content">
+                <label class="label">Nombre de la categoría</label>
+                <input class="input" type="text" [(ngModel)]="egreso.categoria" >
+                <br><br>
+                <button (click)="agregarEgreso()" id="agregar" >
+                  Agregar
+                </button>
+              </ion-content>
+            </ng-template>
+          </ion-modal>
+      </div>
+    
+  </ion-content>
+</ion-app>
+
+

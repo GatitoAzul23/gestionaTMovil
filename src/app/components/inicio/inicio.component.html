@@ -5,7 +5,7 @@
     </ion-header>
     <ion-content class="ion-padding">
       <div class="contModal">
-        <h1>Registra un gasto</h1>
+        <h1 class="titulo">Registra un gasto</h1>
         <img src="./assets/imagenes/egreso.png" alt="" class="imagen">
         <ion-button expand="block" (click)="setOpen(true)">Iniciar</ion-button>
         <ion-modal [isOpen]="isModalOpen" class="modal">
@@ -43,7 +43,7 @@
       </div>
       <!-- TODO : Aqui abajo la el otro modal -->
       <div class="contModal">
-        <h1>Registra un ingreso</h1>
+        <h1 class="titulo">Registra un ingreso</h1>
         <img src="./assets/imagenes/ingreso.png" alt="" class="imagen">
         <ion-button expand="block" (click)="setOpenModal2(true)">Iniciar</ion-button>
         <ion-modal [isOpen]="isModal2Open" class="modal">
