@@ -11,7 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { AlertController } from '@ionic/angular';
 //import { PushNotifications } from '@capacitor/push-notifications';
-
+//Ultimas cosas agregadas
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 //importar los modulos
 import { AppComponent } from './app.component';
@@ -25,6 +26,9 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
 import { ModDatosComponent } from './components/mod-datos/mod-datos.component';
 import { TipsComponent } from './components/tips/tips.component';
 import { SuscripcionesComponent } from './components/suscripciones/suscripciones.component';
+import { CuentaComponent } from './components/cuenta/cuenta.component';
+import { IngresosComponent } from './components/ingresos/ingresos.component';
+import { EgresosComponent } from './components/egresos/egresos.component';
 //servicios
 import { LoginService } from './servicios/login.service';
 
@@ -39,7 +43,10 @@ import { LoginService } from './servicios/login.service';
     NotificacionesComponent,
     ModDatosComponent,
     TipsComponent,
-    SuscripcionesComponent],
+    SuscripcionesComponent,
+    CuentaComponent,
+    IngresosComponent,
+    EgresosComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
@@ -57,7 +64,7 @@ import { LoginService } from './servicios/login.service';
     AlertController
    
   ],
-  //schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   bootstrap: [AppComponent],
 })
 

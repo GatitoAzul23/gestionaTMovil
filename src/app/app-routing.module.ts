@@ -8,7 +8,9 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
 import { ModDatosComponent } from './components/mod-datos/mod-datos.component';
 import { TipsComponent } from './components/tips/tips.component';
 import { SuscripcionesComponent } from './components/suscripciones/suscripciones.component';
-
+import { CuentaComponent } from './components/cuenta/cuenta.component';
+import { IngresosComponent } from './components/ingresos/ingresos.component';
+import { EgresosComponent } from './components/egresos/egresos.component';
 const routes: Routes = [
   {
     path: 'home',
@@ -26,7 +28,10 @@ const routes: Routes = [
   {path: 'notificaciones', component:NotificacionesComponent},
   {path: 'modificar', component:ModDatosComponent},
   {path: 'tips', component:TipsComponent},
-  {path: 'suscripciones', component:SuscripcionesComponent}
+  {path: 'suscripciones', component:SuscripcionesComponent},
+  {path: 'cuenta', component:CuentaComponent},
+  {path: 'ingresos', component:IngresosComponent},
+  {path: 'egresos', component:EgresosComponent}
 ];
 
 @NgModule({

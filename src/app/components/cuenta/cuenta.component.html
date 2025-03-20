@@ -1,3 +1,22 @@
-<p>
-  cuenta works!
-</p>
+<ion-app>
+  <ion-header class="menuComponent">
+    <app-menu></app-menu>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <br><br>
+    <h1 class="titulo">Datos personales</h1>
+    <label for="nombre">Bienvenido:</label>
+    <input type="text" id="nombre" class="input" placeholder="Nombre" [(ngModel)]="usuario.nomUsuario">
+    <br>
+    <div class="cambPass">
+      <h1>Actualizar contraseña</h1>
+      <label for="pass">Contraseña antigua</label>
+      <input type="password" id="pass" class="input" [(ngModel)]="usuario.password_ant">
+      <br>
+      <label for="pass2">Nueva contraseña</label>
+      <input type="password" id="pass2" class="input" [(ngModel)]="usuario.password">
+      <br>
+      <button expand="block" (click)="actualizarContra()">Actualizar</button>
+    </div>
+  </ion-content>
+</ion-app>

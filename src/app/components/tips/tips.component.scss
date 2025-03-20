@@ -8,9 +8,18 @@
     
 }
 
+.slideTip{
+  background-color: #f4d79381;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+}
+
 ion-card {
     //--background: rgba(153, 188, 133, 0.5); /* Fondo de encabezados con opacidad */
-    --background: #f4d79381;
     //--background: #000;
     --color: #000;
     width: 100%;

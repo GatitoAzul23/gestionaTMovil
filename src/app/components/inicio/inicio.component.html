@@ -5,6 +5,12 @@
     </ion-header>
     <ion-content class="ion-padding">
       <div class="contModal">
+        <h1 class="titulo">Balance actual</h1>
+        <p>Tu saldo actual es:</p>
+        <input type="number" id="saldoUs" class="input" placeholder="Saldo" [(ngModel)]="usuario.saldo" disabled>
+        
+      </div>
+      <div class="contModal">
         <h1 class="titulo">Registra un gasto</h1>
         <img src="./assets/imagenes/egreso.png" alt="" class="imagen">
         <ion-button expand="block" (click)="setOpen(true)">Iniciar</ion-button>

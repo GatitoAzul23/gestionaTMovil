@@ -19,7 +19,8 @@ export class InicioComponent  implements OnInit {
   }
 
   usuario= {
-    categoria: ''
+    categoria: '',
+    saldo:0
   }
   // Modal
     isModalOpen = false;
