@@ -1,0 +1,27 @@
+
+#carrusel-example{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+ion-card {
+    //--background: rgba(153, 188, 133, 0.5); /* Fondo de encabezados con opacidad */
+    --background: #f4d79381;
+    //--background: #000;
+    --color: #000;
+    width: 100%;
+    height: 200px;
+  }
+  
+  ion-card-title {
+    --color: #4F6F52;
+    --text-aling:center;
+  }
+  
+  ion-card-subtitle {
+    --color: #000;
+  }

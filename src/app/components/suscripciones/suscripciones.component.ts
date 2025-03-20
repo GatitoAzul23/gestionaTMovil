@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-suscripciones',
@@ -8,7 +8,7 @@ import { IonSlides } from '@ionic/angular';
   standalone: false
 })
 export class SuscripcionesComponent  implements OnInit {
-  @ViewChild(IonSlides, { static: false }) slides: IonSlides;
+  
 
   constructor() { }
 

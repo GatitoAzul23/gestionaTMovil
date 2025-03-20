@@ -12,6 +12,7 @@ import { LocalNotifications } from '@capacitor/local-notifications';
 import { AlertController } from '@ionic/angular';
 //import { PushNotifications } from '@capacitor/push-notifications';
 
+
 //importar los modulos
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -48,13 +49,15 @@ import { LoginService } from './servicios/login.service';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    HttpClientModule],
+    HttpClientModule,
+    //SwiperModule,
+    ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     LoginService,
     AlertController
    
   ],
-  
+  //schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   bootstrap: [AppComponent],
 })
 

@@ -29,7 +29,7 @@
                 </ion-select>
                 <br><br>
                 <ion-label class="label">Cantidad</ion-label>
-                <ion-input class="input" type="number" [(ngModel)]="egreso.cantidad" aria-placeholder="Cantidad" min="1"></ion-input>
+                <ion-input class="input" type="number" [(ngModel)]="egreso.cantidad" min="1"></ion-input>
                 <br><br>
                 <ion-label class="label">Fecha</ion-label>
                 <!-- <ion-input  type="date" [(ngModel)]="egreso.fecha" [value]="currentDate"></ion-input> -->
@@ -58,19 +58,10 @@
             </ion-header>
             <ion-content class="ion-padding" id="modal-content">
               <ion-content class="ion-padding" id="modal-content">
-                <!-- <ion-label  class="label">Categoría del gasto</ion-label>
-                <br><br>
-                <ion-select label="Ingresos del tipo" label-placement="stacked" fill="solid" [(ngModel)]="usuario.categoria">
-                  <div ngFor="let categoria of categorias">
-                    <ion-select-option value="{{usuario.categoria}}">{{usuario.categoria}}</ion-select-option>
-                  </div>
-                </ion-select>
-                <br><br> -->
                 <ion-label class="label">Cantidad</ion-label>
-                <ion-input class="input" type="number" [(ngModel)]="egreso.cantidad" aria-placeholder="Cantidad" min="1"></ion-input>
+                <ion-input class="input" type="number" [(ngModel)]="egreso.cantidad"  min="1"></ion-input>
                 <br><br>
                 <ion-label class="label">Fecha</ion-label>
-                <!-- <ion-input  type="date" [(ngModel)]="egreso.fecha" [value]="currentDate"></ion-input> -->
                 <ion-datetime presentation="date" [preferWheel]="true" [(ngModel)]="egreso.fecha"></ion-datetime>
                 <br><br>
                 <button expand="block" (click)="registrar()">Registrar</button>

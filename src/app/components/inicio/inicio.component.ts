@@ -31,6 +31,7 @@ export class InicioComponent  implements OnInit {
 
     setOpenModal2(isOpen: boolean) {
       this.isModal2Open = isOpen;
+      console.log("No esta abriendo el modal");
     }
 
     registrar(){

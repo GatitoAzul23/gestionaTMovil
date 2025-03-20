@@ -1,3 +1,58 @@
-<p>
-  tips works!
-</p>
+<ion-app>
+  <div class="ion-page" id="main-content">
+    <ion-header class="menuComponent">
+      <app-menu></app-menu>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <br><br>
+      <h1 class="titulo">EducaTips</h1>
+      <p>Los EducaTips son pequeños consejos que te ayudarán a conseguir salud financiera.</p>
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <ion-card class="ion-padding">
+              <ion-card-header>
+                <ion-card-title>EducaTip 1</ion-card-title>
+                <ion-card-subtitle>Genera más ingresos</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                Here's a small text description for the card content. Nothing more, nothing less.
+              </ion-card-content>
+            </ion-card>
+          </div>
+          <div class="carousel-item">
+            <ion-card class="ion-padding">
+              <ion-card-header>
+                <ion-card-title>EducaTip 2</ion-card-title>
+                <ion-card-subtitle>Genera más ingresos</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                Here's a small text description for the card content. Nothing more, nothing less.
+              </ion-card-content>
+            </ion-card>
+          </div>
+          <div class="carousel-item">
+            <ion-card class="ion-padding">
+              <ion-card-header>
+                <ion-card-title>EducaTip 3</ion-card-title>
+                <ion-card-subtitle>Genera más ingresos</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                Here's a small text description for the card content. Nothing more, nothing less.
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </ion-content>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</ion-app>
