@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/servicios/login.service';
+import { IngresoService } from 'src/app/servicios/ingreso.service';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -8,18 +12,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent  implements OnInit {
 
-  constructor() { }
+  constructor(
+    private servicioLogin:LoginService, 
+    private alertCtrl: AlertController,
+    private servicioIngreso:IngresoService,
+    private router:Router) { }
   
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.consultarUno();
+  }
+  
   egreso ={
     categoria: '',
     cantidad: 0,
     fecha: '',
   }
 
-  usuario= {
+  ingreso ={
     categoria: '',
+    cantidad: 0,
+    fecha: '',
+    usuario: localStorage.getItem("correo")
+  }
+
+  ingresos: any;
+  egresos:any;
+
+  usuario= {
+    email: localStorage.getItem("correo"),
+    categoriasIngreso: Array,
+    categoriasEgreso: Array,
     saldo:0
   }
   // Modal
@@ -39,4 +62,57 @@ export class InicioComponent  implements OnInit {
       
     }
 
+    consultarUno(){
+      this.servicioLogin.consultarUno(this.usuario).subscribe(
+        res=>{
+          this.usuario.saldo = res.usu.saldo;
+          this.egresos = res.usu.categoriasEgreso;
+          this.ingresos = res.usu.categoriasIngreso;
+          console.log(this.egresos);
+          console.log(this.ingresos);
+        },
+        err=>{
+          this.presentAlertError(err);
+        }
+      );
+    }
+
+    registrarIngreso(){
+      //console.log(this.ingreso);
+      this.servicioIngreso.registrar(this.ingreso).subscribe(
+        res=>{
+          this.presentAlert();
+          this.limpiarCampos();
+          this.router.navigate(['/ingresos']);
+        },
+        err=>{
+          this.presentAlertError(err.message);
+        }
+      );
+    }
+
+    async presentAlert() {
+      const alert = await this.alertCtrl.create({
+        header: 'Exito',
+        message: 'Información guardada correctamente',
+        buttons: ['Cerrar']
+      });
+      await alert.present();
+    }
+  
+    async presentAlertError(error:any) {
+      const alert = await this.alertCtrl.create({
+        header: 'Algo salió mal',
+        //message: ,
+        buttons: ['Cerrar']
+      });
+      await alert.present();
+    }//fin de presentAlertError
+
+    limpiarCampos(){
+      this.ingreso.categoria = '';
+      this.ingreso.cantidad = 0;
+      this.ingreso.fecha = '';
+    }
+    
 }

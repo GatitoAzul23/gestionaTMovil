@@ -29,8 +29,10 @@ import { SuscripcionesComponent } from './components/suscripciones/suscripciones
 import { CuentaComponent } from './components/cuenta/cuenta.component';
 import { IngresosComponent } from './components/ingresos/ingresos.component';
 import { EgresosComponent } from './components/egresos/egresos.component';
+import { MetaComponent } from './components/meta/meta.component';
 //servicios
 import { LoginService } from './servicios/login.service';
+import { IngresoService } from './servicios/ingreso.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { LoginService } from './servicios/login.service';
     SuscripcionesComponent,
     CuentaComponent,
     IngresosComponent,
-    EgresosComponent],
+    EgresosComponent,
+    MetaComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
@@ -61,8 +64,8 @@ import { LoginService } from './servicios/login.service';
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     LoginService,
-    AlertController
-   
+    AlertController,
+    IngresoService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   bootstrap: [AppComponent],

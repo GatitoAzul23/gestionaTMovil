@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  url = 'http://localhost:3000/usuarios';
+  //url = 'http://localhost:3000/usuarios';
+  url = 'https://gestionatapirest.onrender.com/usuarios';
 
   constructor(private router:Router, private http:HttpClient) { }
 
@@ -38,6 +39,14 @@ export class LoginService {
 
   tuperfil(){
     return localStorage.getItem("perfil");
+  }
+
+  registrar(usuario: object){
+    return this.http.post<any>(this.url+"/registro", usuario);
+  }
+
+  agrCategorias(usuario: object){
+    return this.http.put<any>(this.url+"/categorias", usuario);
   }
 
 }

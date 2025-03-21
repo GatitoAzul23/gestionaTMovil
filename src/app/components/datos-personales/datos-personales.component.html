@@ -5,57 +5,62 @@
         <h2>Datos financieros</h2>
       
       <ion-row class="ion-justify-content-left">
-        <h6>El primer paso es hacer registro de tus ingresos.</h6>
+        <div class="cont">
+          <h6>El primer paso es hacer registro de tus ingresos.</h6>
         <ion-col size="12">
           <label class="label">Ingresos fijos</label>
-          <ion-input class="input" type="text" [(ngModel)]="usuario.nombre" ></ion-input>
+          <br>
+          <label for="nombre">Etiqueta del ingreso</label>
+          <ion-input class="input" type="text" [(ngModel)]="ingreso.categoria" ></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <label for="nombre">Cantidad</label>
+          <ion-input class="input" type="number" [(ngModel)]="ingreso.cantidad"  min="0.0"></ion-input>
         </ion-col>
         <ion-col size="12">
           <div class="field column">
             <label class="label">Frecuencia del ingreso</label>
-              <ion-select label="Ingresos del tipo" label-placement="stacked" fill="solid" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="usuario.apellidoMa">
+              <ion-select label="Ingresos del tipo" label-placement="stacked" fill="solid" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="ingreso.frecuencia">
                 <ion-select-option value="Semanal">Semanal</ion-select-option>
                 <ion-select-option value="Quincenal">Quincenal</ion-select-option>
                 <ion-select-option value="Mensual">Mensual</ion-select-option>
                 <ion-select-option value="Bimestral">Bimestral</ion-select-option>
               </ion-select>
           </div> 
-        </ion-col> 
-        <h6>Ahora define las categorías de los gastos que tienes regularmente.</h6>
-        <ion-col size="12">
-          <ion-item>
-            <ion-label>Renta</ion-label>
-            <ion-toggle slot="end" (ionChange)="actualizarCategoria('Renta', $event.detail.checked)"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Supermercado</ion-label>
-            <ion-toggle slot="end" (ionChange)="actualizarCategoria('Supermercado', $event.detail.checked)"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Medico</ion-label>
-            <ion-toggle slot="end" (ionChange)="actualizarCategoria('Medico', $event.detail.checked)"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Renta</ion-label>
-            <ion-toggle slot="end" (ionChange)="actualizarCategoria('Renta', $event.detail.checked)"></ion-toggle>
-          </ion-item>
-          <h6>Otra:</h6>
-          <ion-item>
-            <div id="personalizada">
-              <ion-input [(ngModel)]="categoriaNombre"></ion-input>
-              <button (click)="agregarCategoria()" id="agregar">
-                <fa-icon [icon]="faPlus"></fa-icon>
-              </button>
-            </div>
-          </ion-item>
-          <div *ngFor="let categoria of categorias">
-            <ion-item>
-              <ion-label>{{ categoria.nombre }}</ion-label>
-              <ion-toggle slot="end" (ionChange)="actualizarCategoria(categoria.nombre, $event.detail.checked)"></ion-toggle>
-            </ion-item>
-          </div>
-          
         </ion-col>
+        </div> 
+        <div class="cont">
+          <h6>Ahora define las categorías de los gastos que tienes regularmente.</h6>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label>Renta</ion-label>
+              <ion-toggle slot="end" (ionChange)="actualizarCategoria('Renta', $event.detail.checked)"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Supermercado</ion-label>
+              <ion-toggle slot="end" (ionChange)="actualizarCategoria('Supermercado', $event.detail.checked)"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Medico</ion-label>
+              <ion-toggle slot="end" (ionChange)="actualizarCategoria('Medico', $event.detail.checked)"></ion-toggle>
+            </ion-item>
+            <h6>Otra:</h6>
+            <ion-item>
+              <div id="personalizada">
+                <ion-input [(ngModel)]="categoriaNombre"></ion-input>
+                <button (click)="agregarCategoria()" id="agregar">
+                  <fa-icon [icon]="faPlus"></fa-icon>
+                </button>
+              </div>
+            </ion-item>
+            <div *ngFor="let categoria of categorias">
+              <ion-item>
+                <ion-label>{{ categoria.nombre }}</ion-label>
+                <ion-toggle slot="end" (ionChange)="actualizarCategoria(categoria.nombre, $event.detail.checked)"></ion-toggle>
+              </ion-item>
+            </div>
+          </ion-col>
+        </div>
         
         <ion-col>
           <button (click)="aceptar()">Enviar</button>

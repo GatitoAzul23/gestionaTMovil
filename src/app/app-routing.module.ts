@@ -11,6 +11,7 @@ import { SuscripcionesComponent } from './components/suscripciones/suscripciones
 import { CuentaComponent } from './components/cuenta/cuenta.component';
 import { IngresosComponent } from './components/ingresos/ingresos.component';
 import { EgresosComponent } from './components/egresos/egresos.component';
+import { MetaComponent } from './components/meta/meta.component';
 const routes: Routes = [
   {
     path: 'home',
@@ -31,7 +32,8 @@ const routes: Routes = [
   {path: 'suscripciones', component:SuscripcionesComponent},
   {path: 'cuenta', component:CuentaComponent},
   {path: 'ingresos', component:IngresosComponent},
-  {path: 'egresos', component:EgresosComponent}
+  {path: 'egresos', component:EgresosComponent},
+  {path: 'meta', component:MetaComponent},
 ];
 
 @NgModule({

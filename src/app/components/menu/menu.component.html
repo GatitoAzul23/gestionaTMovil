@@ -3,9 +3,9 @@
   <button  (click)="toggleMenu()" id="menuButton">
     <fa-icon [icon]="faBars"></fa-icon>
   </button>
-  <!-- <button id="botonCerrar" (click)="logout()">
+  <button id="botonCerrar" (click)="logout()">
     <ion-icon name="log-out-outline"></ion-icon>
-  </button> -->
+  </button>
   <div *ngIf="isOpen" class="menu">
     <ul>
       <li>
@@ -34,6 +34,10 @@
         <ion-icon  slot="start" name="library-outline"></ion-icon>
         <ion-label>EducaTips</ion-label>
       </ion-item>
+      <ion-item routerLink="/meta">
+        <ion-icon  slot="start" name="medal-outline"></ion-icon>
+        <ion-label>Metas</ion-label>
+      </ion-item>
       <ion-item  routerLink="/suscripciones">
         <ion-icon slot="start" name="star-outline"></ion-icon>
         <ion-label>Suscripciones</ion-label>
@@ -43,10 +47,10 @@
         <ion-label>Cuenta</ion-label>
       </ion-item>
 
-      <ion-item (click)="logout()">
+      <!-- <ion-item (click)="logout()">
         <ion-icon slot="start" name="log-out-outline"></ion-icon>
         <ion-label>Cerrar sesión</ion-label>
-      </ion-item>
+      </ion-item> -->
     
     </ul>
   </div>

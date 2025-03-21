@@ -28,10 +28,8 @@
               <ion-content class="ion-padding" id="modal-content">
                 <ion-label  class="label">Categoría del gasto</ion-label>
                 <br><br>
-                <ion-select label="Ingresos del tipo" label-placement="stacked" fill="solid" [(ngModel)]="usuario.categoria">
-                  <div ngFor="let categoria of categorias">
-                    <ion-select-option value="{{usuario.categoria}}">{{usuario.categoria}}</ion-select-option>
-                  </div>
+                <ion-select label="Mis gastos:" label-placement="stacked" fill="solid" [(ngModel)]="egreso.categoria">
+                  <ion-select-option *ngFor = "let egr of egresos" [ngValue]="egr.categoria" >{{egr.categoria}}</ion-select-option>
                 </ion-select>
                 <br><br>
                 <ion-label class="label">Cantidad</ion-label>
@@ -58,19 +56,34 @@
               <ion-toolbar>
                 <ion-title>Registro de ingresos</ion-title>
                 <ion-buttons slot="end">
-                  <ion-button (click)="setOpenModal2(false)">Cancelar</ion-button>
+                  <ion-button (click)="setOpenModal2(false)">
+                    <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+                  </ion-button>
                 </ion-buttons>
               </ion-toolbar>
             </ion-header>
             <ion-content class="ion-padding" id="modal-content">
               <ion-content class="ion-padding" id="modal-content">
                 <ion-label class="label">Cantidad</ion-label>
-                <ion-input class="input" type="number" [(ngModel)]="egreso.cantidad"  min="1"></ion-input>
+                <ion-input class="input" type="number" [(ngModel)]="ingreso.cantidad" min="1"></ion-input>
                 <br><br>
                 <ion-label class="label">Fecha</ion-label>
-                <ion-datetime presentation="date" [preferWheel]="true" [(ngModel)]="egreso.fecha"></ion-datetime>
+                <br>
+                <ion-datetime 
+                presentation="date" 
+                [(ngModel)]="ingreso.fecha"
+              ></ion-datetime>
                 <br><br>
-                <button expand="block" (click)="registrar()">Registrar</button>
+                <ion-label class="label">Categoría</ion-label>
+                <ion-select label="Mis ingresos:" label-placement="stacked" fill="solid" [(ngModel)]="ingreso.categoria">
+                  <!-- <ion-select-option *ngFor = "let ing of ingresos | async" [ngValue]="ing.categoria" >{{ing.categoria}}</ion-select-option> -->
+                  <ion-select-option *ngFor="let ing of ingresos" [ngValue]="ing.categoria">{{ing.categoria}}</ion-select-option>
+                </ion-select>
+                <br><br>
+                <ion-label class="label">¿Otro?</ion-label>
+                <ion-input class="input" type="text" [(ngModel)]="ingreso.categoria"></ion-input>
+                <br><br>
+                <button expand="block" (click)="registrarIngreso()">Registrar</button>
               </ion-content>
             </ion-content>
           </ng-template>

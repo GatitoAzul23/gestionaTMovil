@@ -18,10 +18,9 @@
       <br><br>
       <ion-label>Frecuencia</ion-label>
         <ion-select label="Elije la frecuencia del recordatorio" label-placement="stacked" fill="solid" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="notificacion.frecuencia">
-          <ion-select-option value="minute">Cada minuto</ion-select-option>
-          <ion-select-option value="day">Diario</ion-select-option>
           <ion-select-option value="week">Cada semana</ion-select-option>
           <ion-select-option value="month">Cada mes</ion-select-option>
+          <ion-select-option value="year">Cada año</ion-select-option>
         </ion-select>
         <br><br>
     <ion-button (click)="programarNotificacion()" expand="block">

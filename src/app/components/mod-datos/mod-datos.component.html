@@ -20,7 +20,7 @@
               <td>{{ing.monto}}</td>
               <td>{{ing.frecuencia}}</td>
               <td>
-                <button (click)="eliminaIng()" id="agregar">
+                <button (click)="eliminaIng()" class="eliminar">
                   <fa-icon [icon]="faMinus"></fa-icon>
                 </button>
               </td>
@@ -79,7 +79,7 @@
             <tr *ngFor="let egr of egresos">
               <td>{{egr.categoria}}</td>
               <td>
-                <button (click)="eliminaEgr()" id="agregar">
+                <button (click)="eliminaEgr()" class="eliminar">
                   <fa-icon [icon]="faMinus"></fa-icon>
                 </button>
               </td>

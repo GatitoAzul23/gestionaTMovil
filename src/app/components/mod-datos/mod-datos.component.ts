@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
-
+import { LoginService } from 'src/app/servicios/login.service';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-mod-datos',
   templateUrl: './mod-datos.component.html',
@@ -10,9 +11,13 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons';
 })
 export class ModDatosComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private servicioLogin:LoginService, private alertCtrl:AlertController) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.consultar();
+  }
+
+  
   //para los iconos
   faMinus =faMinus;
   faPlus = faPlus;
@@ -29,6 +34,10 @@ export class ModDatosComponent  implements OnInit {
   egreso = {
     categoria: ''
   };
+
+  usuario = {
+    email: localStorage.getItem('correo')
+  }
 
   
 
@@ -57,6 +66,19 @@ export class ModDatosComponent  implements OnInit {
   }
   eliminaEgr(){
 
+  }
+
+  consultar(){
+    this.servicioLogin.consultarUno(this.usuario).subscribe(
+      res=>{
+        console.log(res);
+        this.ingresos = res.usu.categoriasIngreso;
+        this.egresos = res.usu.categoriasEgreso;
+      },
+      err=>{
+
+      }
+    );
   }
 
 }
