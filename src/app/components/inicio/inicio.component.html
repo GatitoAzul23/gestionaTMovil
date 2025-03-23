@@ -20,7 +20,7 @@
               <ion-toolbar>
                 <ion-title>Registro de gastos</ion-title>
                 <ion-buttons slot="end">
-                  <ion-button (click)="setOpen(false)">Cancelar</ion-button>
+                  <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
                 </ion-buttons>
               </ion-toolbar>
             </ion-header>
@@ -78,10 +78,10 @@
                 <ion-select label="Mis ingresos:" label-placement="stacked" fill="solid" [(ngModel)]="ingreso.categoria">
                   <!-- <ion-select-option *ngFor = "let ing of ingresos | async" [ngValue]="ing.categoria" >{{ing.categoria}}</ion-select-option> -->
                   <ion-select-option *ngFor="let ing of ingresos" [ngValue]="ing.categoria">{{ing.categoria}}</ion-select-option>
+                  <ion-select-opction value="Otro">Otro</ion-select-opction>
                 </ion-select>
                 <br><br>
-                <ion-label class="label">¿Otro?</ion-label>
-                <ion-input class="input" type="text" [(ngModel)]="ingreso.categoria"></ion-input>
+                
                 <br><br>
                 <button expand="block" (click)="registrarIngreso()">Registrar</button>
               </ion-content>
@@ -90,5 +90,10 @@
         </ion-modal>
       </div>
     </ion-content>
+    <ion-footer>
+      <div style="height: 20px;">
+  
+      </div>
+    </ion-footer>
   </div>
 </ion-app>

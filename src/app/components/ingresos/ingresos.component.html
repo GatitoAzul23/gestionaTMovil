@@ -7,7 +7,7 @@
     <h1 class="titulo">Ingresos</h1>
     <div class="grafica">
       <h3>Ingresos del mes en curso.</h3>
-      <canvas id="graficaIngresos"></canvas>
+      <canvas id="canvas"></canvas>
     </div>
     <div class="tabla">
       <h3>Desglose de ingresos.</h3>
@@ -23,6 +23,25 @@
           <td>{{ing.cantidad}}</td>
         </tr>
       </table>
+      <table class="styled-table" *ngFor="let ing of ingresos">
+        <tr>
+          <th>Fecha</th>
+          <td>{{ing.fecha}}</td>
+        </tr>
+        <tr>
+          <th>Categoria</th>
+          <td>{{ing.categoria}}</td>
+        </tr>
+        <tr>
+          <th>Cantidad</th>
+          <td>{{ing.cantidad}}</td>
+        </tr>
+      </table>
     </div>
   </ion-content>
+  <ion-footer>
+    <div style="height: 20px;">
+
+    </div>
+  </ion-footer>
 </ion-app>

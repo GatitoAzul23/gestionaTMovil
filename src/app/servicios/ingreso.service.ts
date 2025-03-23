@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class IngresoService {
 
   constructor(private router:Router, private http: HttpClient) { }
-  //url = 'http://localhost:3000/ingresos';
-  url = 'https://gestionatapirest.onrender.com/ingresos';
+  url = 'http://localhost:3000/ingresos';
+  //url = 'https://gestionatapirest.onrender.com/ingresos';
 
 
   registrar(ingreso:object){

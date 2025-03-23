@@ -32,15 +32,15 @@ export class IngresosComponent  implements OnInit {
   //Funcion para crear la grafica
   createChart(data: any) {
     Chart.register(...registerables);
-    const labels = data.labels;
-    const values = data.values;
+    const labels = Object.keys(data);
+    const values = Object.values(data);
 
     this.chart = new Chart('canvas', {
       type: 'doughnut', // Cambia a 'pie', 'line', etc. si lo deseas
       data: {
         labels: labels,
         datasets: [{
-          label: 'Totales',
+          label: 'Ingresos del mes',
           data: values,
           backgroundColor: [
             '#FF6384',
@@ -66,7 +66,7 @@ export class IngresosComponent  implements OnInit {
   consultarMesNow(){
     this.servicioIngresos.consultarMesAct(this.ingreso).subscribe(
       res=>{
-        const data = res;
+        const data = res.totales;
         this.ingresos = res.ingresos;
         //console.log(res.ingresos);
         this.createChart(data);

@@ -5,5 +5,21 @@
   <ion-content class="ion-padding">
     <br><br>
     <h1 class="titulo">Metas</h1>
+    <br><br>
+    <label for="objetivo">¿Cual es tu objetivo?</label>
+    <input type="text" id="objetivo" placeholder="Ej: Xbox">
+    <br><br>
+    <label for="costo">¿Cuanto cuesta?</label>
+    <input type="number" id="costo" placeholder="Ej: 8000">
+    <br><br>
+    <label for="fecha">¿Para cuando lo quieres?</label>
+    <input type="text" id="fecha" placeholder="Numero de meses">
+    <br><br>
+    <button class="boton" (click)="calcular()">Calcular</button>
   </ion-content>
+  <ion-footer>
+    <div style="height: 20px;">
+
+    </div>
+  </ion-footer>
 </ion-app>

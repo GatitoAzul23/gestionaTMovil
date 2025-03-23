@@ -12,4 +12,15 @@ export class MetaComponent  implements OnInit {
 
   ngOnInit() {}
 
+  meta = {
+    usuario:localStorage.getItem('correo'),
+    objetivo: '',
+    costo:0,
+    tiempo:0
+  }
+
+  calcular(){
+
+  }
+
 }
