@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/servicios/login.service';
 import { IngresoService } from 'src/app/servicios/ingreso.service';
+import { EgresoService } from 'src/app/servicios/egreso.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -16,6 +17,7 @@ export class InicioComponent  implements OnInit {
     private servicioLogin:LoginService, 
     private alertCtrl: AlertController,
     private servicioIngreso:IngresoService,
+    private servicioEgreso:EgresoService,
     private router:Router) { }
   
 
@@ -25,13 +27,14 @@ export class InicioComponent  implements OnInit {
   
   egreso ={
     categoria: '',
-    cantidad: 0,
+    cantidad: '',
     fecha: '',
+    usuario:localStorage.getItem("correo")
   }
 
   ingreso ={
     categoria: '',
-    cantidad: 0,
+    cantidad: '',
     fecha: '',
     usuario: localStorage.getItem("correo")
   }
@@ -58,18 +61,19 @@ export class InicioComponent  implements OnInit {
       console.log("No esta abriendo el modal");
     }
 
-    registrar(){
-      
-    }
+  
 
+    
     consultarUno(){
       this.servicioLogin.consultarUno(this.usuario).subscribe(
         res=>{
           this.usuario.saldo = res.usu.saldo;
-          this.egresos = res.usu.categoriasEgreso;
-          this.ingresos = res.usu.categoriasIngreso;
-          console.log(this.egresos);
-          console.log(this.ingresos);
+          // this.egresos = res.usu.categoriasEgreso;
+          // this.ingresos = res.usu.categoriasIngreso;
+          this.ingresos = res.categoriasFiltradas.ingreso;
+          this.egresos = res.categoriasFiltradas.egreso;
+          console.log(res.categoriasFiltradas.ingreso);
+          console.log(res.categoriasFiltradas.egreso);
         },
         err=>{
           this.presentAlertError(err);
@@ -83,10 +87,25 @@ export class InicioComponent  implements OnInit {
         res=>{
           this.presentAlert();
           this.limpiarCampos();
-          this.router.navigate(['/ingresos']);
+          //this.setOpenModal2(false);
+          //this.router.navigate(['/ingresos']);
         },
         err=>{
           this.presentAlertError(err.message);
+        }
+      );
+    }
+
+    registrarEgreso(){
+      this.servicioEgreso.registrar(this.egreso).subscribe(
+        res=>{
+          this.presentAlert();
+          this.limpiarCamposE();
+          //this.setOpen(false);
+          //this.router.navigate(['/egresos']);
+        },
+        err=>{
+          this.presentAlertError(err);
         }
       );
     }
@@ -110,9 +129,15 @@ export class InicioComponent  implements OnInit {
     }//fin de presentAlertError
 
     limpiarCampos(){
-      this.ingreso.categoria = '';
-      this.ingreso.cantidad = 0;
-      this.ingreso.fecha = '';
+      this.ingreso.categoria = '',
+      this.ingreso.cantidad = '',
+      this.ingreso.fecha = ''
+    }
+
+    limpiarCamposE(){
+      this.egreso.categoria = '',
+      this.egreso.cantidad = '',
+      this.egreso.fecha = ''
     }
     
 }

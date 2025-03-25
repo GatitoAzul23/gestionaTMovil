@@ -26,8 +26,9 @@ export class DatosPersonalesComponent  implements OnInit {
     private alertCtrl:AlertController) { }
 
   ngOnInit() {}
-  categoriasSeleccionadas: any[] = [];
+  //categoriasSeleccionadas: any[] = [];
 
+  categoriasSeleccionadas: any[] = [{ categoria: "Otro", estatus: "Activo" }];
   categorias: any[] = []; // Para las categorías personalizadas
   categoriaNombre = ''; // Para el nombre de la categoría personalizada
  

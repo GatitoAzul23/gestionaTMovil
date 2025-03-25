@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { AlertController } from '@ionic/angular';
+import { NotificacionService } from 'src/app/servicios/notificacion.service';
 
 @Component({
   selector: 'app-notificaciones',
@@ -10,17 +11,70 @@ import { AlertController } from '@ionic/angular';
 })
 export class NotificacionesComponent  implements OnInit {
 
-  constructor(private alertCtrl: AlertController) { }
+  constructor(private alertCtrl: AlertController,
+    private servicioNotificacion: NotificacionService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.consultarNotificaciones();
+  }
 
+  notificaciones:any;
   notificacion = {
     fecha: '',
     mensaje: '',
-    frecuencia: ''
+    frecuencia: '',
+    usuario: localStorage.getItem("correo")
   }
 
-  async programarNotificacion() {
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+
+  consultarNotificaciones(){
+    this.servicioNotificacion.consultar(this.notificacion).subscribe(
+      res=>{
+        this.notificaciones = res.notificacion;
+      },
+      err=>{
+
+      }
+    );
+  }
+
+  eliminar(notificacion: any){
+    this.servicioNotificacion.eliminar(notificacion).subscribe(
+      res=>{
+        this.presentAlertElim();
+        //location.reload();
+      },
+      err=>{
+        this.presentAlertError(err);
+      }
+    );
+  }
+
+
+  programarNotificacion(){
+    this.servicioNotificacion.registrar(this.notificacion).subscribe(
+      res=>{
+        this.presentAlert();
+        this.agrendarNoti();
+        this.limpiarCampos();
+      },
+      err=>{
+        this.presentAlertError(err);
+      }
+      
+    );
+    
+
+  }
+
+
+  async agrendarNoti() {
     const scheduleDate = new Date(this.notificacion.fecha);
     
     await LocalNotifications.schedule({
@@ -37,8 +91,7 @@ export class NotificacionesComponent  implements OnInit {
       }]
     });
 
-    this.limpiarCampos();
-    this.presentAlert();
+    
    }
 
   // async programarNotificacion() {
@@ -107,10 +160,42 @@ export class NotificacionesComponent  implements OnInit {
   async presentAlert() {
     const alert = await this.alertCtrl.create({
       header: 'GestionaT',
-      message: 'Notificación programada correctamente',
+      message: 'Recordatorio programaoa correctamente',
       buttons: ['Cerrar']
     });
     await alert.present();
   }
 
+  async presentAlertElim() {
+    const alert = await this.alertCtrl.create({
+      header: 'GestionaT',
+      message: 'Recordatorio eliminado correctamente',
+      //buttons: ['Cerrar']
+      buttons: [
+        {
+          text: 'Cerrar',
+          handler: () => {
+            // Lógica para borrar los campos
+            location.reload();
+            return true; // Permite que la alerta se cierre
+          }
+        }
+      ]
+    });
+    await alert.present();
+    //location.reload();
+  }
+
+
+  async presentAlertError(err:any) {
+    if(typeof(err.error)=="string"){
+      const alert = await this.alertCtrl.create({
+        header: 'Algo salio mal',
+        message: err.error,
+        buttons: ['Cerrar']
+      });
+      await alert.present();
+    }
+    
+  }
 }

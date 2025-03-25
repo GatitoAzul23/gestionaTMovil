@@ -1,0 +1,16 @@
+.styled-table {
+    border-collapse: collapse;
+    width: 100%;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+
+}
+
+.styled-table th, .styled-table td {
+    border: 1px solid black; /* Bordes negros */
+    padding: 10px;
+}
+
+.styled-table th {
+    background-color: rgba(153, 188, 133, 0.5); /* Fondo de encabezados con opacidad */
+}

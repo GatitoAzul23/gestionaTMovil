@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  //url = 'http://localhost:3000/usuarios';
-  url = 'https://gestionatapirest.onrender.com/usuarios';
+  url = 'http://localhost:3000/usuarios';
+  //url = 'https://gestionatapirest.onrender.com/usuarios';
 
   constructor(private router:Router, private http:HttpClient) { }
 
@@ -49,4 +49,32 @@ export class LoginService {
     return this.http.put<any>(this.url+"/categorias", usuario);
   }
 
+  categoriasFiltradas(usuario: object){
+    return this.http.post<any>(this.url+"/verCate", usuario);
+  }
+
+  agregarIngreso(ingreso: any){
+    return this.http.put<any>(this.url+"/nuevoIngreso",ingreso);
+  } 
+
+  agregarEgreso(egreso:any){
+    return this.http.put<any>(this.url+"/nuevoEgreso",egreso);
+  }
+
+  eliminarIngreso(ingreso:any){
+   const body={
+    categoria: ingreso.categoria ,
+    usuario: localStorage.getItem("correo")
+   }
+    return this.http.put<any>(this.url+"/eliminaIng", body);
+  }
+
+  eliminaEgreso(egreso:any){
+    //return this.http.put<any>(this.url+"/nuevoEgreso",egreso);
+    const body={
+      categoria: egreso.categoria ,
+      usuario: localStorage.getItem("correo")
+    }
+      return this.http.put<any>(this.url+"/eliminaEgr", body);
+  }
 }

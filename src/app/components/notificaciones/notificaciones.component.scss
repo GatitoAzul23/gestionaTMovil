@@ -61,6 +61,13 @@ ion-datetime {
     cursor: pointer;
     margin-top: 20px;
 }
+.cancelar{
+  background-color:#A94A4A ;
+}
+#btnConsultar{
+  --background: #61A3BA;
+}
+
 
 ion-button{
   --background:#4F6F52;
@@ -93,3 +100,20 @@ ion-button{
       max-width: 100px; /* Tamaño más pequeño para móviles */
   }
 }  
+
+.styled-table {
+  border-collapse: collapse;
+  width: 100%;
+  padding-bottom: 50px;
+  margin-bottom: 20px;
+
+}
+
+.styled-table th, .styled-table td {
+  border: 1px solid black; /* Bordes negros */
+  padding: 10px;
+}
+
+.styled-table th {
+  background-color: rgba(153, 188, 133, 0.5); /* Fondo de encabezados con opacidad */
+}

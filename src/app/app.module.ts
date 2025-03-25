@@ -33,6 +33,8 @@ import { MetaComponent } from './components/meta/meta.component';
 //servicios
 import { LoginService } from './servicios/login.service';
 import { IngresoService } from './servicios/ingreso.service';
+import { EgresoService } from './servicios/egreso.service';
+import { NotificacionService } from './servicios/notificacion.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { IngresoService } from './servicios/ingreso.service';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     LoginService,
     AlertController,
-    IngresoService
+    IngresoService,
+    EgresoService,
+    NotificacionService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   bootstrap: [AppComponent],

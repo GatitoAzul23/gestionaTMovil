@@ -3,6 +3,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from 'src/app/servicios/login.service';
 import { AlertController } from '@ionic/angular';
+
 @Component({
   selector: 'app-mod-datos',
   templateUrl: './mod-datos.component.html',
@@ -11,7 +12,8 @@ import { AlertController } from '@ionic/angular';
 })
 export class ModDatosComponent  implements OnInit {
 
-  constructor(private servicioLogin:LoginService, private alertCtrl:AlertController) { }
+  constructor(private servicioLogin:LoginService, 
+    private alertCtrl:AlertController) { }
 
   ngOnInit() {
     this.consultar();
@@ -29,16 +31,31 @@ export class ModDatosComponent  implements OnInit {
     categoria: '',
     cantidad: '',
     frecuencia: '',
+    estatus:'Activo',
+    usuario: localStorage.getItem("correo")
   }
-
   egreso = {
-    categoria: ''
+    categoria: '',
+    estatus: 'Activo',
+    usuario: localStorage.getItem("correo")
   };
 
   usuario = {
     email: localStorage.getItem('correo')
   }
 
+
+  usuarioIngreso ={
+    usuario :localStorage.getItem("correo"),
+    categoriasIngreso : this.ingreso
+  }
+
+  usuarioEgreso ={
+    usuario :localStorage.getItem("correo"),
+    categoriasEgreso : this.egreso
+  }
+  
+  
   
 
   //para los modales
@@ -54,31 +71,159 @@ export class ModDatosComponent  implements OnInit {
   }
 
   agregarIngreso(){
-
-  }
+    this.servicioLogin.agregarIngreso(this.usuarioIngreso).subscribe(
+      res=>{
+        this.presentAlertIngreso();
+      },
+      err=>{
+        this.presentAlertError(err);
+      }
+    );
+  }//fin de agregar ingreso
 
   agregarEgreso(){
-
+    this.servicioLogin.agregarEgreso(this.usuarioEgreso).subscribe(
+      res=>{
+        this.presentAlertEgreso();
+      },
+      err=>{
+        this.presentAlertError(err);
+      }
+    );
   }
 
-  eliminaIng(){
-
+  eliminaIng(ing:any){
+    this.servicioLogin.eliminarIngreso(ing).subscribe(
+      res=>{
+        this.presentAlertEliminaIngreso();
+      },
+      err=>{
+        this.presentAlertError(err);
+      }
+    );
+    console.log(ing);
   }
-  eliminaEgr(){
-
+  eliminaEgr(egr:any){
+    this.servicioLogin.eliminaEgreso(egr).subscribe(
+      res=>{
+        this.presentAlertEliminaEgreso();
+      },
+      err=>{
+        this.presentAlertError(err);
+      }
+    );
   }
 
   consultar(){
-    this.servicioLogin.consultarUno(this.usuario).subscribe(
+    this.servicioLogin.categoriasFiltradas(this.usuario).subscribe(
       res=>{
-        console.log(res);
-        this.ingresos = res.usu.categoriasIngreso;
-        this.egresos = res.usu.categoriasEgreso;
+        //console.log(res);
+        this.ingresos = res.categoriasFiltradas.Ingresos;
+        this.egresos = res.categoriasFiltradas.Egresos;
       },
       err=>{
-
+        this.presentAlertError(err);
       }
     );
+  }
+
+  async presentAlertIngreso() {
+    const alert = await this.alertCtrl.create({
+      header: 'GestionaT',
+      message: 'Ingreso registrado correctamente',
+      buttons: [
+        {
+          text: 'Cerrar',
+          handler: () => {
+            // Lógica para borrar los campos
+            this.limpiarCamposIngreso();
+            location.reload();
+            return true; // Permite que la alerta se cierre
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async presentAlertEgreso() {
+    const alert = await this.alertCtrl.create({
+      header: 'GestionaT',
+      message: 'Ingreso registrado correctamente',
+     buttons: [
+        {
+          text: 'Cerrar',
+          handler: () => {
+            // Lógica para borrar los campos
+            this.limpiarCamposEgreso();
+            location.reload();
+            return true; // Permite que la alerta se cierre
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async presentAlertError(err:any) {
+    if(typeof(err.error)=="string"){
+      const alert = await this.alertCtrl.create({
+        header: 'Algo salio mal',
+        message: err.error,
+        buttons: ['Cerrar']
+      });
+      await alert.present();
+    }
+    
+  }
+
+
+  async presentAlertEliminaIngreso() {
+    const alert = await this.alertCtrl.create({
+      header: 'GestionaT',
+      message: 'Ingreso eliminado correctamente',
+      buttons: [
+        {
+          text: 'Cerrar',
+          handler: () => {
+            // Lógica para borrar los campos
+            //this.limpiarCamposIngreso();
+            location.reload();
+            return true; // Permite que la alerta se cierre
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async presentAlertEliminaEgreso() {
+    const alert = await this.alertCtrl.create({
+      header: 'GestionaT',
+      message: 'Ingreso eliminado correctamente',
+      buttons: [
+        {
+          text: 'Cerrar',
+          handler: () => {
+            // Lógica para borrar los campos
+            //this.limpiarCamposIngreso();
+            location.reload();
+            return true; // Permite que la alerta se cierre
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  limpiarCamposIngreso(){
+    this.ingreso.cantidad = "";
+    this.ingreso.categoria="";
+    this.ingreso.frecuencia="";
+  }
+
+  limpiarCamposEgreso(){
+    this.egreso.categoria="";
   }
 
 }

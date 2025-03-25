@@ -11,28 +11,78 @@
       <ion-datetime 
       presentation="date-time" 
       [(ngModel)]="notificacion.fecha"
-    ></ion-datetime>
+      ></ion-datetime>
       <br><br>
       <ion-label>Mensaje</ion-label>
       <input fill="outline" shape="round" [(ngModel)]="notificacion.mensaje">
       <br><br>
       <ion-label>Frecuencia</ion-label>
-        <ion-select label="Elije la frecuencia del recordatorio" label-placement="stacked" fill="solid" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="notificacion.frecuencia">
-          <ion-select-option value="week">Cada semana</ion-select-option>
-          <ion-select-option value="month">Cada mes</ion-select-option>
-          <ion-select-option value="year">Cada año</ion-select-option>
-        </ion-select>
-        <br><br>
-    <ion-button (click)="programarNotificacion()" expand="block">
-      Programar Notificación
-    </ion-button>
-    <div style="height: 100px;">
-  
-    </div>
+      <ion-select label="Elije la frecuencia del recordatorio" label-placement="stacked" fill="solid" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="notificacion.frecuencia">
+        <ion-select-option value="Semanal">Cada semana</ion-select-option>
+        <ion-select-option value="Mensual">Cada mes</ion-select-option>
+        <ion-select-option value="Anual">Cada año</ion-select-option>
+      </ion-select>
+      <br><br>
+      <ion-button (click)="programarNotificacion()" expand="block">
+        Programar Notificación
+      </ion-button>
+      <ion-button (click)="setOpen(true)" id="btnConsultar" expand="block">
+        Mis recordatorios
+      </ion-button>
+      <ion-modal [isOpen]="isModalOpen" class="modal">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>Recordatorios creados</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="setOpen(false)">
+                  <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding" id="modal-content">
+            <div class="" *ngIf="(notificaciones.length === 0)">
+              <ion-card class="ion-padding">
+                <ion-card-header>
+                  <ion-card-title>No hay recordatorios registrados</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  Aqui verás tus recordatorios creados una vez que los hagas.
+                </ion-card-content>
+              </ion-card>
+            </div>
+            <table class="styled-table" *ngFor="let noti of notificaciones">
+              <tr>
+                <th>Fecha y hora de inicio</th>
+                <td>{{noti.fecha}}</td>
+              </tr>
+              <tr>
+                <th>Mensaje</th>
+                <td>{{noti.mensaje}}</td>
+              </tr>
+              <tr>
+                <th>Frecuencia</th>
+                <td>{{noti.frecuencia}}</td>
+              </tr>
+              <tr>
+                <th>Cancelar</th>
+                <td>
+                  <button class="cancelar" (click)="eliminar(noti)">
+                    <ion-icon slot="icon-only" name="trash-bin-outline"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
     </ion-content>
-    <!-- <ion-footer>
-      
-    </ion-footer> -->
+    <ion-footer>
+      <div style="height: 20px;">
+  
+      </div>
+    </ion-footer>
   </div>
   
 </ion-app>

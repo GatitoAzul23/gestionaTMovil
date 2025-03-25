@@ -43,11 +43,13 @@ export class IngresosComponent  implements OnInit {
           label: 'Ingresos del mes',
           data: values,
           backgroundColor: [
-            '#FF6384',
+            '#BE5A83',
             '#36A2EB',
-            '#FFCE56',
-            '#4BC0C0',
-            '#9966FF'
+            '#FFCF50',
+            '#4F6F52',
+            '#A94A4A',
+            '#EF9C66',
+            '#61A3BA'
           ],
           borderWidth: 1
         }]

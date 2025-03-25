@@ -17,10 +17,10 @@
             </tr>
             <tr *ngFor="let ing of ingresos">
               <td>{{ing.categoria}}</td>
-              <td>{{ing.monto}}</td>
+              <td>{{ing.cantidad}}</td>
               <td>{{ing.frecuencia}}</td>
               <td>
-                <button (click)="eliminaIng()" class="eliminar">
+                <button (click)="eliminaIng(ing)" class="eliminar">
                   <fa-icon [icon]="faMinus"></fa-icon>
                 </button>
               </td>
@@ -79,7 +79,7 @@
             <tr *ngFor="let egr of egresos">
               <td>{{egr.categoria}}</td>
               <td>
-                <button (click)="eliminaEgr()" class="eliminar">
+                <button (click)="eliminaEgr(egr)" class="eliminar">
                   <fa-icon [icon]="faMinus"></fa-icon>
                 </button>
               </td>
@@ -114,6 +114,11 @@
       </div>
     
   </ion-content>
+  <ion-footer>
+    <div style="height: 20px;">
+
+    </div>
+  </ion-footer>
 </ion-app>
 
 

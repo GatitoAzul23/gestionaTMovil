@@ -5,6 +5,40 @@
   <ion-content class="ion-padding">
     <br><br>
     <h1 class="titulo">Egresos</h1>
+    <!-- <h3>Gastos</h3> -->
+    <div class="grafica">
+      <h3>Gastos del mes en curso.</h3>
+      <canvas id="cavasEgr"></canvas>
+    </div>
+    <div class="tabla">
+      <h3>Desglose de gastos.</h3>
+      <!-- <table class="styled-table">
+        <tr>
+          <th>Fecha</th>
+          <th>Categoria</th>
+          <th>Cantidad</th>
+        </tr>
+        <tr *ngFor="let egr of egresos">
+          <td>{{egr.fecha}}</td>
+          <td>{{egr.categoria}}</td>
+          <td>{{egr.cantidad}}</td>
+        </tr>
+      </table> -->
+      <table class="styled-table" *ngFor="let egr of egresos">
+        <tr>
+          <th>Fecha</th>
+          <td>{{egr.fecha}}</td>
+        </tr>
+        <tr>
+          <th>Categoria</th>
+          <td>{{egr.categoria}}</td>
+        </tr>
+        <tr>
+          <th>Cantidad</th>
+          <td>{{egr.cantidad}}</td>
+        </tr>
+      </table>
+    </div>
   </ion-content>
   <ion-footer>
     <div style="height: 20px;">
