@@ -5,17 +5,103 @@
   <ion-content class="ion-padding">
     <br><br>
     <h1 class="titulo">Metas</h1>
-    <br><br>
+    <img src="./assets/imagenes/meta.gif" alt="">
     <label for="objetivo">¿Cual es tu objetivo?</label>
-    <input type="text" id="objetivo" placeholder="Ej: Xbox">
+    <ion-input type="text" id="objetivo" placeholder="Ej: Xbox" [(ngModel)]="meta.objetivo"></ion-input>
     <br><br>
     <label for="costo">¿Cuanto cuesta?</label>
-    <input type="number" id="costo" placeholder="Ej: 8000">
+    <ion-input type="number" id="costo" placeholder="Ej: 8000" [(ngModel)]="meta.costo"></ion-input>
     <br><br>
     <label for="fecha">¿Para cuando lo quieres?</label>
-    <input type="text" id="fecha" placeholder="Numero de meses">
-    <br><br>
+    <ion-input type="number" id="fecha" placeholder="Numero de meses" [(ngModel)]="meta.tiempo"></ion-input>
+    <br>
     <button class="boton" (click)="calcular()">Calcular</button>
+    
+    <ion-modal [isOpen]="isModalOpen" class="modal">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Meta de ahorro</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen(false)">Cancelar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding" id="modal-content">
+          <h2>Resultado calculado</h2>
+          <br><br>
+          <label for="meta">Meta</label>
+          <ion-input type="text" id="meta" [(ngModel)]="metaSugerida.meta"></ion-input>
+          <br><br>
+          <label for="monto">Cantidad objetivo</label>
+          <ion-input type="number" id="monto" [(ngModel)]="metaSugerida.montoObjetivo"></ion-input>
+          <br><br>
+          <label for="meses">Tiempo en meses</label>
+          <ion-input type="text" id="meses" [(ngModel)]="metaSugerida.mesesPlaneados"></ion-input>
+          <br><br>
+          <label for="cantMensual"> Cantidad a ahorrar cada mes</label>
+          <ion-input type="number" id="cantMensual" [(ngModel)]="metaSugerida.ahorroMensualRequerido"></ion-input>
+          <br><br>
+          <label for="maxAhorro">Ahorro máximo por mes</label>
+          <ion-input type="text" id="maxAhorro" [(ngModel)]="metaSugerida.maxAhorroPermitido"></ion-input>
+          <br><br>
+          <div *ngIf="metaSugerida.viable == true">
+            <label for="excedente">Dinero libre</label>
+            <ion-input type="text" id="excedente" [(ngModel)]="metaSugerida.excedente"></ion-input>
+            <br><br>
+            <button (click)="registrar()">Iniciar meta</button>
+          </div>
+          <div *ngIf="metaSugerida.viable == false">
+            <label for="mesesMinimos">Meses mínimos sugeridos</label>
+            <ion-input type="number" id="mesesMinimos" [(ngModel)]="metaSugerida.mesesMinimos"></ion-input>
+            <br><br>
+            <label for="faltante">Dinero faltante mensual</label>
+            <ion-input type="number" id="faltante" [(ngModel)]="metaSugerida.diferenciaFaltante"></ion-input>
+            <br><br>
+            <button id="rechazar">Regresar</button>
+          </div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+    <button class="info" (click)="setOpenHistorial(true)">Ver metas anteriores</button>
+  <ion-modal [isOpen]="isModalOpenHistorial" class="modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Metas finalizadas</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpenHistorial(false)">Cancelar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" id="modal-content">
+        <h2>Metas finalizadas</h2>
+        <br><br>
+        <table class="styled-table" *ngFor="let met of metas">
+          <tr>
+            <th>Meta</th>
+            <td>{{met.meta}}</td>
+          </tr>
+          <tr>
+            <th>Cantidad del objetivo</th>
+            <td>{{met.montoObjetivo}}</td>
+          </tr>
+          <tr>
+            <th>Tiempo en meses</th>
+            <td>{{met.mesesPlaneados}}</td>
+          </tr>
+          <tr>
+            <th>Cantidad ahorrada al mes</th>
+            <td>{{met.ahorroMensualRequerido}}</td>
+          </tr>
+          <tr>
+            <th>Estado de finalización</th>
+            <td>{{met.estatus}}</td>
+          </tr>
+        </table>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
   </ion-content>
   <ion-footer>
     <div style="height: 20px;">

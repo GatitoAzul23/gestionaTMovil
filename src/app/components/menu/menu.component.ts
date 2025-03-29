@@ -12,6 +12,8 @@ import {
 import { Router } from '@angular/router';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from 'src/app/servicios/login.service';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-menu',
@@ -20,15 +22,29 @@ import { LoginService } from 'src/app/servicios/login.service';
   standalone: false,
   //imports: [IonApp, IonButtons, IonContent, IonHeader, IonMenu, IonMenuButton, IonTitle, IonToolbar],
 })
+
+
 export class MenuComponent  implements OnInit {
 
-  constructor(private router:Router, private servicioLogin:LoginService) { }
+  constructor(private router:Router, private servicioLogin:LoginService,
+    private cd: ChangeDetectorRef
+  ) { }
 //Variables para el uso del menu
   faBars = faBars;
 
-  ngOnInit() {}
+  ngOnInit() {
+   
+  }
+
+
+  usuario={
+    usuario: localStorage.getItem("correo"),
+    meta: localStorage.getItem('meta') === 'true',
+    
+  }
 
   
+
   public isOpen = false;
 
   toggleMenu() {

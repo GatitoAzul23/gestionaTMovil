@@ -14,7 +14,8 @@ export class IngresosComponent  implements OnInit {
   //agregado para las graficas
   @ViewChild('content', { static: false }) content!: ElementRef;
 
-  constructor(private servicioIngresos:IngresoService, private alertCtrl:AlertController) { }
+  constructor(private servicioIngresos:IngresoService, 
+    private alertCtrl:AlertController) { }
 
   ngOnInit() {
     this.consultarMesNow();

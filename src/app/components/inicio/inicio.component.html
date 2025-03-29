@@ -34,6 +34,9 @@
                   <ion-select-option *ngFor = "let egr of egresos" [ngValue]="egr.categoria" >{{egr.categoria}}</ion-select-option>
                 </ion-select>
                 <br><br>
+                <ion-label label="Detalle" label-placement="stacked" fill="solid">Descripcion</ion-label>
+                <ion-input class="input" type="text" [(ngModel)]="egreso.descripcion"></ion-input>
+                <br><br>
                 <ion-label class="label">Cantidad</ion-label>
                 <ion-input class="input" type="number" [(ngModel)]="egreso.cantidad" min="1"></ion-input>
                 <br><br>
@@ -88,6 +91,8 @@
                   <ion-select-opction value="Otro">Otro</ion-select-opction>
                 </ion-select>
                 <br><br>
+                <ion-label label="Detalle" label-placement="stacked" fill="solid">Descripcion</ion-label>
+                <ion-input class="input" type="text" [(ngModel)]="ingreso.descripcion"></ion-input>
                 
                 <br><br>
                 <button expand="block" (click)="registrarIngreso()">Registrar</button>

@@ -116,10 +116,12 @@
     
 }
 
-input{
+ion-input{
+    border-bottom-color: #DBDBDB;
+    border-bottom-width: 1px;
+    border-bottom-style:solid ;
     color: #333;
-}
-
+  }
 /* Contenedor de la imagen */
 .logo {
    //margin-bottom: 20px;

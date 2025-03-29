@@ -65,13 +65,19 @@ ion-datetime {
   background-color:#A94A4A ;
 }
 #btnConsultar{
-  --background: #61A3BA;
+  --background: #57B4BA;
 }
 
 
 ion-button{
   --background:#4F6F52;
   --color:#fff;
+}
+
+ion-input{
+  border-bottom-color: #DBDBDB;
+  border-bottom-width: 1px;
+  border-bottom-style:solid ;
 }
 
 /* Estilos responsivos */

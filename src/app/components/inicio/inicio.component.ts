@@ -22,6 +22,7 @@ export class InicioComponent  implements OnInit {
   
 
   ngOnInit() {
+    
     this.consultarUno();
   }
   
@@ -29,6 +30,7 @@ export class InicioComponent  implements OnInit {
     categoria: '',
     cantidad: '',
     fecha: '',
+    descripcion: '',
     usuario:localStorage.getItem("correo")
   }
 
@@ -36,6 +38,7 @@ export class InicioComponent  implements OnInit {
     categoria: '',
     cantidad: '',
     fecha: '',
+    descripcion:'',
     usuario: localStorage.getItem("correo")
   }
 
@@ -74,6 +77,7 @@ export class InicioComponent  implements OnInit {
           this.egresos = res.categoriasFiltradas.egreso;
           console.log(res.categoriasFiltradas.ingreso);
           console.log(res.categoriasFiltradas.egreso);
+          //localStorage.setItem("meta", res.usu.meta);
         },
         err=>{
           this.presentAlertError(err);
@@ -85,7 +89,7 @@ export class InicioComponent  implements OnInit {
       //console.log(this.ingreso);
       this.servicioIngreso.registrar(this.ingreso).subscribe(
         res=>{
-          this.presentAlert();
+          this.presentAlertIngreso();
           this.limpiarCampos();
           //this.setOpenModal2(false);
           //this.router.navigate(['/ingresos']);
@@ -99,7 +103,7 @@ export class InicioComponent  implements OnInit {
     registrarEgreso(){
       this.servicioEgreso.registrar(this.egreso).subscribe(
         res=>{
-          this.presentAlert();
+          this.presentAlertEgresos();
           this.limpiarCamposE();
           //this.setOpen(false);
           //this.router.navigate(['/egresos']);
@@ -110,14 +114,46 @@ export class InicioComponent  implements OnInit {
       );
     }
 
-    async presentAlert() {
+    async presentAlertEgresos() {
       const alert = await this.alertCtrl.create({
         header: 'Exito',
         message: 'Información guardada correctamente',
-        buttons: ['Cerrar']
+        //buttons: ['Cerrar']
+        buttons: [
+          {
+            text: 'Cerrar',
+            handler: () => {
+              // Lógica para borrar los campos
+              this.limpiarCamposE();
+              location.reload();
+              return true; // Permite que la alerta se cierre
+            }
+          }
+        ]
       });
       await alert.present();
     }
+
+    async presentAlertIngreso() {
+      const alert = await this.alertCtrl.create({
+        header: 'Exito',
+        message: 'Información guardada correctamente',
+        //buttons: ['Cerrar']
+        buttons: [
+          {
+            text: 'Cerrar',
+            handler: () => {
+              // Lógica para borrar los campos
+              this.limpiarCampos();
+              location.reload();
+              return true; // Permite que la alerta se cierre
+            }
+          }
+        ]
+      });
+      await alert.present();
+    }
+  
   
     async presentAlertError(error:any) {
       const alert = await this.alertCtrl.create({

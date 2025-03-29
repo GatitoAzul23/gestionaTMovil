@@ -29,7 +29,7 @@
   .eliminar{
     width: 80%;
     height: fit-content;
-    background-color: #7D0A0A;
+    background-color: #BF3131;
     color: #fff;
   }
   button {
@@ -55,4 +55,10 @@ button:hover {
     padding-right: 15px;
     padding-left: 15px;
     
+}
+
+ion-input{
+  border-bottom-color: #DBDBDB;
+  border-bottom-width: 1px;
+  border-bottom-style:solid ;
 }

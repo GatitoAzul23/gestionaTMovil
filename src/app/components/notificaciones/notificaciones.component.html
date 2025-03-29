@@ -14,7 +14,7 @@
       ></ion-datetime>
       <br><br>
       <ion-label>Mensaje</ion-label>
-      <input fill="outline" shape="round" [(ngModel)]="notificacion.mensaje">
+      <ion-input type="text"  [(ngModel)]="notificacion.mensaje"></ion-input>
       <br><br>
       <ion-label>Frecuencia</ion-label>
       <ion-select label="Elije la frecuencia del recordatorio" label-placement="stacked" fill="solid" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="notificacion.frecuencia">

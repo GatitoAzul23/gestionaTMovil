@@ -53,6 +53,11 @@ ion-datetime {
     color: rgb(27, 77, 62);
   }
 
+  ion-input{
+    border-bottom-color: #DBDBDB;
+    border-bottom-width: 1px;
+    border-bottom-style:solid ;
+  }
   button {
     width: 100%;
     padding: 10px;
@@ -76,5 +81,9 @@ ion-button{
   width: 80%;
   //background-color: black ;
   font-size: medium;
-  border-radius: 25px;
+  //border-radius: 25px;
+  text-justify: center;
+  border-bottom-color: #DBDBDB;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }

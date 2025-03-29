@@ -34,7 +34,11 @@
         <ion-icon  slot="start" name="library-outline"></ion-icon>
         <ion-label>EducaTips</ion-label>
       </ion-item>
-      <ion-item routerLink="/meta">
+      <ion-item *ngIf="!usuario.meta" routerLink="/meta" >
+        <ion-icon  slot="start" name="medal-outline"></ion-icon>
+        <ion-label>Metas</ion-label>
+      </ion-item>
+      <ion-item *ngIf="usuario.meta" routerLink="/metaActiva">
         <ion-icon  slot="start" name="medal-outline"></ion-icon>
         <ion-label>Metas</ion-label>
       </ion-item>

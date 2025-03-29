@@ -106,15 +106,11 @@ label {
     text-align: left;
 }
 
-ion-input {
-    width: 100%;
-    //padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: #fff;
-    
-}
+ion-input{
+    border-bottom-color: #DBDBDB;
+    border-bottom-width: 1px;
+    border-bottom-style:solid ;
+  }
 
 /* Botón de envío */
 button {

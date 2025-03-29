@@ -60,9 +60,9 @@ export class NotificacionesComponent  implements OnInit {
   programarNotificacion(){
     this.servicioNotificacion.registrar(this.notificacion).subscribe(
       res=>{
+        this.agrendarNoti();  
         this.presentAlert();
-        this.agrendarNoti();
-        this.limpiarCampos();
+        
       },
       err=>{
         this.presentAlertError(err);
@@ -160,8 +160,18 @@ export class NotificacionesComponent  implements OnInit {
   async presentAlert() {
     const alert = await this.alertCtrl.create({
       header: 'GestionaT',
-      message: 'Recordatorio programaoa correctamente',
-      buttons: ['Cerrar']
+      message: 'Recordatorio programado correctamente',
+      //buttons: ['Cerrar']
+      buttons: [
+        {
+          text: 'Cerrar',
+          handler: () => {
+            // Lógica para borrar los campos
+            location.reload();
+            this.limpiarCampos();
+            return true; // Permite que la alerta se cierre
+          }
+        }]
     });
     await alert.present();
   }

@@ -1,4 +1,24 @@
-button {
+input{
+    border-bottom-color: #DBDBDB;
+    border-bottom-width: 1px;
+    border-bottom-style:solid ;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .grafico{
+
+  }
+
+  .info{
+    background-color: #57B4BA;
+  }
+  .cancelar{
+    background-color: #BF3131;
+  }
+
+  button {
     width: 100%;
     padding: 10px;
     background-color: #4F6F52;
@@ -10,17 +30,7 @@ button {
     margin-bottom: 10px;
 }
 
-.info{
-  background-color: #57B4BA;
-}
 
-ion-input{
-    border-bottom-color: #DBDBDB;
-    border-bottom-width: 1px;
-    border-bottom-style:solid ;
-  }
-
-  
 .styled-table {
   border-collapse: collapse;
   width: 100%;
@@ -36,13 +46,4 @@ ion-input{
 
 .styled-table th {
   background-color: rgba(153, 188, 133, 0.5); /* Fondo de encabezados con opacidad */
-  width: 35%;
-  text-align: start;
 }
-
-
-// ion-button{
-//   --background:#4F6F52;
-//   --color:#fff;
-//   width: 50%;
-// }

@@ -45,10 +45,10 @@
               </ion-header>
               <ion-content class="ion-padding" id="modal-content">
                 <label class="label">Nombre del ingreso</label>
-                <input class="input" type="text" [(ngModel)]="ingreso.categoria" >
+                <ion-input class="input" type="text" [(ngModel)]="ingreso.categoria" ></ion-input>
                 <br><br>
                 <label class="label">Cantidad promedio</label>
-                <input class="input" type="numer" min="1" [(ngModel)]="ingreso.cantidad" >
+                <ion-input class="input" type="number" min="1" [(ngModel)]="ingreso.cantidad" ></ion-input>
                 <br><br>
                 <div class="field column">
                   <label class="label">Frecuencia del ingreso</label>
@@ -103,7 +103,7 @@
               </ion-header>
               <ion-content class="ion-padding" id="modal-content">
                 <label class="label">Nombre de la categoría</label>
-                <input class="input" type="text" [(ngModel)]="egreso.categoria" >
+                <ion-input class="input" type="text" [(ngModel)]="egreso.categoria" ></ion-input>
                 <br><br>
                 <button (click)="agregarEgreso()" id="agregar" >
                   Agregar

@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NotificacionService {
 
-  url = 'http://localhost:3000/notificacion';
-  //url = 'https://gestionatapirest.onrender.com/notificacion';
+  //url = 'http://localhost:3000/notificacion';
+  url = 'https://gestionatapirest.onrender.com/notificacion';
 
   constructor(
     private http : HttpClient

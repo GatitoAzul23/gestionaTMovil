@@ -1,0 +1,94 @@
+<ion-header class="menuComponent">
+  <app-menu></app-menu>
+</ion-header>
+<ion-content class="ion-padding">
+  <br><br>
+  <h1 class="titulo">Mi meta</h1>
+  <br><br>
+  <label for="meta">Meta</label>
+  <!-- <ion-input id="meta" [(ngModel)]="meta.meta" disabled></ion-input> -->
+  <input id="meta" [(ngModel)]="meta.meta" disabled>
+  <br><br>
+  <label for="cantidad">Cantidad</label>
+  <!-- <ion-input id="cantidad" [(ngModel)]="meta.montoObjetivo" disabled></ion-input> -->
+  <input id="cantidad" [(ngModel)]="meta.montoObjetivo" disabled>
+  <br><br>
+  <label for="meses">Tiempo estimado en meses</label>
+  <!-- <ion-input id="meses" [(ngModel)]="meta.mesesPlaneados" disabled></ion-input> -->
+  <input id="meses" [(ngModel)]="meta.mesesPlaneados" disabled>
+  <br><br>
+  <label for="ahorro">Ahorro estimado por mes</label>
+  <!-- <ion-input id="ahorro" [(ngModel)]="meta.ahorroMensualRequerido" disabled></ion-input> -->
+  <input id="ahorro" [(ngModel)]="meta.ahorroMensualRequerido" disabled>
+  <br><br>
+  <div class="grafico">
+    <canvas id="metaGrafica"></canvas>
+  </div>
+  <br><br>
+  <button (click)="setOpen(true)">Registrar ahorro</button>
+  <ion-modal [isOpen]="isModalOpen" class="modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Registrar ahorro</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Cancelar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" id="modal-content">
+        <h2>Ingresa la cantidad que ahorraste.</h2>
+        <br><br>
+        <label for="cantidad">Cantidad</label>
+        <ion-input type="number" id="cantidad" [(ngModel)]="metaMod.cantidad"></ion-input>
+        <br><br>
+        <button (click)="modificar()">Agregar</button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <button class="info" (click)="setOpenHistorial(true)">Ver metas anteriores</button>
+  <ion-modal [isOpen]="isModalOpenHistorial" class="modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Metas finalizadas</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpenHistorial(false)">Cancelar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" id="modal-content">
+        <h2>Metas finalizadas</h2>
+        <br><br>
+        <table class="styled-table" *ngFor="let met of metas">
+          <tr>
+            <th>Meta</th>
+            <td>{{met.meta}}</td>
+          </tr>
+          <tr>
+            <th>Cantidad del objetivo</th>
+            <td>{{met.montoObjetivo}}</td>
+          </tr>
+          <tr>
+            <th>Tiempo en meses</th>
+            <td>{{met.mesesPlaneados}}</td>
+          </tr>
+          <tr>
+            <th>Cantidad ahorrada al mes</th>
+            <td>{{met.ahorroMensualRequerido}}</td>
+          </tr>
+          <tr>
+            <th>Estado de finalización</th>
+            <td>{{met.estatus}}</td>
+          </tr>
+        </table>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <button class="cancelar" (click)="finalizar()">Finalizar</button>
+</ion-content>
+<ion-footer>
+  <div style="height: 20px;">
+  
+  </div>
+</ion-footer>

@@ -30,6 +30,7 @@ import { CuentaComponent } from './components/cuenta/cuenta.component';
 import { IngresosComponent } from './components/ingresos/ingresos.component';
 import { EgresosComponent } from './components/egresos/egresos.component';
 import { MetaComponent } from './components/meta/meta.component';
+import { MetasActivasComponent } from './components/metas-activas/metas-activas.component';
 //servicios
 import { LoginService } from './servicios/login.service';
 import { IngresoService } from './servicios/ingreso.service';
@@ -51,7 +52,8 @@ import { NotificacionService } from './servicios/notificacion.service';
     CuentaComponent,
     IngresosComponent,
     EgresosComponent,
-    MetaComponent],
+    MetaComponent,
+  MetasActivasComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
