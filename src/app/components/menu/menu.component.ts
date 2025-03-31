@@ -26,7 +26,7 @@ import { ChangeDetectorRef } from '@angular/core';
 
 export class MenuComponent  implements OnInit {
 
-  constructor(private router:Router, private servicioLogin:LoginService,
+  constructor(private router:Router, public servicioLogin:LoginService,
     private cd: ChangeDetectorRef
   ) { }
 //Variables para el uso del menu

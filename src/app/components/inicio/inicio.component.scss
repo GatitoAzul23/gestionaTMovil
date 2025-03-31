@@ -87,3 +87,9 @@ ion-button{
   border-bottom-width: 1px;
   border-bottom-style: solid;
 }
+
+ion-refresher-content {
+  --background: linear-gradient(135deg, #00c6ff, #0072ff);
+  --color: #ffffff;
+  --spinner-color: #ffffff;
+}

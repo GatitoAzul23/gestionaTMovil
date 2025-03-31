@@ -31,7 +31,11 @@ export class LoginComponent  implements OnInit {
         console.log(res);
         //localStorage.setItem("perfil", res.env.ti
         // cpo);
-        this.router.navigate(['/inicio']);  
+        //this.router.navigate(['/inicio']);  
+        this.router.navigate(['/inicio']).then(() => {
+          window.location.href = window.location.origin + '/inicio';
+        });
+        
       },
       err=>{
         //console.log(err);

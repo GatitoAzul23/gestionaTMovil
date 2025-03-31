@@ -10,8 +10,8 @@ export class MetaService {
     private http: HttpClient
   ) { }
 
-  url = 'http://localhost:3000/metas';
-  //url = 'https://gestionatapirest.onrender.com/metas';
+  //url = 'http://localhost:3000/metas';
+  url = 'https://gestionatapirest.onrender.com/metas';
 
   calcularMeta(meta:any){
     const body ={

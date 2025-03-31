@@ -10,7 +10,7 @@ button {
     margin-bottom: 10px;
 }
 
-.info{
+.pasados{
   background-color: #57B4BA;
 }
 
@@ -38,6 +38,13 @@ ion-input{
   background-color: rgba(153, 188, 133, 0.5); /* Fondo de encabezados con opacidad */
   width: 35%;
   text-align: start;
+}
+
+.info{
+  //background-color: #ACD3A8;
+  background-color: rgba(153, 188, 133, 0.5);
+  padding: 5px;
+  border-radius: 25px;
 }
 
 

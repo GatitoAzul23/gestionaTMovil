@@ -7,9 +7,6 @@ input{
     border-right: none;
   }
 
-  .grafico{
-
-  }
 
   .info{
     background-color: #57B4BA;
@@ -46,4 +43,10 @@ input{
 
 .styled-table th {
   background-color: rgba(153, 188, 133, 0.5); /* Fondo de encabezados con opacidad */
+}
+
+.styled-table th {
+  background-color: rgba(153, 188, 133, 0.5); /* Fondo de encabezados con opacidad */
+  width: 35%;
+  text-align: start;
 }

@@ -25,6 +25,13 @@ export class InicioComponent  implements OnInit {
     
     this.consultarUno();
   }
+  // Función para manejar el refresco
+  doRefresh(event: any) {
+    location.reload(); // Llama a la función que actualiza los datos
+    setTimeout(() => {
+      event.target.complete(); // Indica que el refresco ha terminado
+    }, 2000); // Simula un retraso de 2 segundos
+  }
   
   egreso ={
     categoria: '',
@@ -70,13 +77,15 @@ export class InicioComponent  implements OnInit {
     consultarUno(){
       this.servicioLogin.consultarUno(this.usuario).subscribe(
         res=>{
+          console.log(res);
+          
           this.usuario.saldo = res.usu.saldo;
           // this.egresos = res.usu.categoriasEgreso;
           // this.ingresos = res.usu.categoriasIngreso;
           this.ingresos = res.categoriasFiltradas.ingreso;
           this.egresos = res.categoriasFiltradas.egreso;
-          console.log(res.categoriasFiltradas.ingreso);
-          console.log(res.categoriasFiltradas.egreso);
+          //console.log(res.categoriasFiltradas.ingreso);
+          //console.log(res.categoriasFiltradas.egreso);
           //localStorage.setItem("meta", res.usu.meta);
         },
         err=>{

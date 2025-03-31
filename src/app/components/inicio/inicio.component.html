@@ -2,8 +2,19 @@
   <div class="ion-page" id="main-content">
     <ion-header class="menuComponent"> 
       <app-menu></app-menu>
+      
+    <!-- Contenido de la página -->
     </ion-header>
     <ion-content class="ion-padding">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText=""
+        refreshingSpinner="circles"
+        refreshingText="Cargando...">
+          
+        </ion-refresher-content>
+      </ion-refresher>
       <div class="contModal">
         <h1 class="titulo">Balance actual</h1>
         <p>Tu saldo actual es:</p>
@@ -12,7 +23,7 @@
       </div>
       <div class="contModal">
         <h1 class="titulo">Registra un gasto</h1>
-        <img src="./assets/imagenes/egreso.png" alt="" class="imagen">
+        <img src="./assets/imagenes/egreso.gif" alt="" class="imagen">
         <ion-button expand="block" (click)="setOpen(true)">Iniciar</ion-button>
         <ion-modal [isOpen]="isModalOpen" class="modal">
           <ng-template>
@@ -49,15 +60,17 @@
               ></ion-datetime>
                 <br><br>
                 <button expand="block" (click)="registrarEgreso()">Registrar</button>
+                <div style="height: 20px;"></div>
               </ion-content>
             </ion-content>
+           
           </ng-template>
         </ion-modal>
       </div>
       <!-- TODO : Aqui abajo la el otro modal -->
       <div class="contModal">
         <h1 class="titulo">Registra un ingreso</h1>
-        <img src="./assets/imagenes/ingreso.png" alt="" class="imagen">
+        <img src="./assets/imagenes/ingreso.gif" alt="" class="imagen">
         <ion-button expand="block" (click)="setOpenModal2(true)">Iniciar</ion-button>
         <ion-modal [isOpen]="isModal2Open" class="modal">
           <ng-template>
@@ -96,8 +109,10 @@
                 
                 <br><br>
                 <button expand="block" (click)="registrarIngreso()">Registrar</button>
+                <div style="height: 20px;"></div>
               </ion-content>
             </ion-content>
+           
           </ng-template>
         </ion-modal>
       </div>

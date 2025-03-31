@@ -44,10 +44,14 @@
           <br><br>
           <label for="maxAhorro">Ahorro máximo por mes</label>
           <ion-input type="text" id="maxAhorro" [(ngModel)]="metaSugerida.maxAhorroPermitido"></ion-input>
+          <div class="info"><p>¿Qué significa? Dentro de los EducaTips encontrarás más afondo sobre esto, es la cantidad máxima que te recomendamos para gastos opcionales.</p></div>
           <br><br>
           <div *ngIf="metaSugerida.viable == true">
             <label for="excedente">Dinero libre</label>
             <ion-input type="text" id="excedente" [(ngModel)]="metaSugerida.excedente"></ion-input>
+            <div class="info">
+              <p>¿Qué significa? Si ahorras la cantidad recomendada esto quedará libre para utilizarlo en otros gastos, te recomendamos revisar los EducaTips para ver como puedes hacer crecer tu dinero.</p>
+            </div>
             <br><br>
             <button (click)="registrar()">Iniciar meta</button>
           </div>
@@ -60,10 +64,11 @@
             <br><br>
             <button id="rechazar">Regresar</button>
           </div>
+          <div style="height: 20px;"></div>
         </ion-content>
       </ng-template>
     </ion-modal>
-    <button class="info" (click)="setOpenHistorial(true)">Ver metas anteriores</button>
+    <button class="pasados" (click)="setOpenHistorial(true)">Ver metas anteriores</button>
   <ion-modal [isOpen]="isModalOpenHistorial" class="modal">
     <ng-template>
       <ion-header>
@@ -95,10 +100,15 @@
             <td>{{met.ahorroMensualRequerido}}</td>
           </tr>
           <tr>
+            <th>Cantidad ahorrada al termino</th>
+            <td>{{met.cantidadAlcanzada}}</td>
+          </tr>
+          <tr>
             <th>Estado de finalización</th>
             <td>{{met.estatus}}</td>
           </tr>
         </table>
+        <div style="height: 20px;"></div>
       </ion-content>
     </ng-template>
   </ion-modal>
